@@ -45,5 +45,18 @@ return [
         'client_secret' => 'ptwxZz-sjiek_Xq2QTR9P8qd',
         'redirect' => 'http://localhost:8000/googlestatus'],
 
+        'twitter' => [
+            'client_id' => '0pq50jEz4kARAadujyBiBqu4a',
+            'client_secret' => 'RvQDLueK8TxuoEEXcM1vyX0g0dAUBdnLM9PpBJwtwQDv4Dbkwa',
+            'redirect' => 'http://localhost:8000/twitterstatus',
+        ],
+
+        'github' => [
+            'client_id' => env('GITHUB_ID'),
+            'client_secret' => env('GITHUB_SECRET'),
+            'redirect' => env('GITHUB_URL'),
+        ],
+        
+
 
 ];

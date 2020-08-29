@@ -82,6 +82,18 @@ class AccountController extends Controller
         return Socialite::driver('google')->redirect();
     }
 
+    public function twitter_redirect(){
+        return Socialite::driver('twitter')->redirect();
+    }
+
+
+    public function github_redirect(){
+        return Socialite::driver('github')->redirect();
+    }
+
+
+
+
     public function google_status(){
         // THIS LOGIC IS REMAINING
         return view('basic.index');

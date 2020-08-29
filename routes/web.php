@@ -43,7 +43,9 @@ Route::get('verify/{token}','AccountController@verify');
 Route::get('account/delete/{token}','AccountController@delete');
 Route::get('myaccount','AccountController@myaccount')->middleware('auth');
 Route::get('googlelogin','AccountController@google_redirect');
+Route::get('twitterlogin','AccountController@twitter_redirect');
 Route::get('googlestatus','AccountController@google_status');
-
+// Twitter callback not done
+Route::get('githublogin','AccountController@github_redirect');
 
 
