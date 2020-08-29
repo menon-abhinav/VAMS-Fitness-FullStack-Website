@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\User;
+use Socialite;
 use App\Mail\EmailVerification;
 use App\Mail\DeleteAccount;
 
@@ -51,7 +52,7 @@ class AccountController extends Controller
         $user                       =   User::find(decrypt($token));
         $user->email_verified_at    =   now();
         $user->save();
-        return "Your Email has been verified";
+        return redirect('/login')->with('verify','Your Account has been verified, please log in');
 
     }
 
@@ -69,9 +70,20 @@ class AccountController extends Controller
 
     }
     public function myaccount(Request $request){
-        $user_latest_blog           =   $request->user()->blog()->latest()->first();
         $user_info                  =   $request->user();
-        return view('account.myaccount',compact('user_latest_blog','user_info'));
+        $user_latest_blog           =   $user_info->blog()->latest()->first();
+        $user_comment               =   $user_info->comment()->latest()->first();
+        $last_transaction           =   $user_info->transaction()->latest()->first();
+        return view('account.myaccount',compact('user_latest_blog','user_info','user_comment','last_transaction'));
 
+    }
+
+    public function google_redirect(){
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function google_status(){
+        // THIS LOGIC IS REMAINING
+        return view('basic.index');
     }
 }

@@ -40,4 +40,10 @@ return [
         'industry_type' => env('PAYTM_INDUSTRY_TYPE'),
 ],
 
+    'google' => [
+        'client_id' => '275838996165-1i66enm9tqpm1a1dvgfoih7lgtoif2t1.apps.googleusercontent.com',
+        'client_secret' => 'ptwxZz-sjiek_Xq2QTR9P8qd',
+        'redirect' => 'http://localhost:8000/googlestatus'],
+
+
 ];

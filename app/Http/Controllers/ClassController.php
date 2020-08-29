@@ -7,6 +7,8 @@ use PaytmWallet;
 use App\Transaction;
 use App\Package;
 use App\User;
+use App\Order;
+
 class ClassController extends Controller
 {
     // For class page
@@ -24,7 +26,9 @@ class ClassController extends Controller
         $package    = Package::find($id); 
         $payment    = PaytmWallet::with('receive');
         // GENERATA ORDER ID
-        $payment->prepare(['order' => 212555452,'user' => $request->user()->id,'mobile_number' => $request->user()->mobile,'email' => $request->user()->email, 'amount' => $package->price,'callback_url' => 'http://localhost:8000/packages']);
+
+        $new_order  = Order::create(['user_id'=>$request->user()->id]);
+        $payment->prepare(['order' => $new_order->id,'user' => $request->user()->id,'mobile_number' => $request->user()->mobile,'email' => $request->user()->email, 'amount' => $package->price,'callback_url' => 'http://localhost:8000/packages']);
         return $payment->receive();
     }
 
@@ -38,7 +42,7 @@ class ClassController extends Controller
             $user               = User::find($request->user()->id);
             $user->package_id   = session('id'); 
             $user->save();
-            \Mail::to($request->user()['email'],$request->user()['first-name'])->send(new PaymentSuccessful($response));
+            \Mail::to($request->user()['email'],$request->user()['first-name'])->send(new PaymentSuccessful());# Take response
             return "Transaction Is Successful";
 
           }else if($transaction->isFailed()){

@@ -56,4 +56,12 @@ class User extends Authenticatable
     public function comment(){
         return $this->hasMany(Comment::class);
     }
+
+    public function order(){
+        return $this->hasMany(Order::class);
+    }
+
+    public function transaction(){
+        return $this->hasManyThrough(Transaction::class,Order::class);
+    }
 }

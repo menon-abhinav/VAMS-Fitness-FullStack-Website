@@ -41,13 +41,13 @@
                         <li><a href="/">Home</a></li>
                         <li><a href="/aboutus">About</a></li>
                         <li><a href="/class">Classes</a></li>
-                        <li  class = "active"><a href="/blog">Blog</a></li>
+                        <li><a href="/blog">Blog</a></li>
                         <li><a href="/shop">Shop</a></li>
                         <li><a href="/gallery">Gallery</a></li>
                         <li><a href="/contact">Contacts</a></li>
                         
                         @if(Auth::check())
-                        <li><a href="/myaccount">My Account</a></li>
+                        <li class='active'><a href="/myaccount">My Account</a></li>
                         @endif
 
                     </ul>
@@ -69,10 +69,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <h2>Blog</h2>
+                        <h2>My Account</h2>
                         <div class="breadcrumb-option">
                             <a href="./index.html"><i class="fa fa-home"></i> Home</a>
-                            <span>Blog</span>
+                            <span>My Account</span>
                         </div>
                     </div>
                 </div>
@@ -83,14 +83,31 @@
 
     
     
-    
-
+ 
 
 
     <!-- Blog Section Begin -->
     <section class="blog-section spad">
         <div class="container">
         <div>
+        <div class="alert alert-warning">
+        @if(!empty($user_info->package['name']))
+    <p> Your current plan is {{$user_info->package['name']}}</p>
+    @else
+    <p> No Package. Buy a package now. <a href='/class'>Click Here </a><p>
+    @endif
+    </div>
+
+
+    <div class="alert alert-warning">
+                                    @if(Session::has('login'))
+                                    <div>{{ Session::get('login') }}</div>
+                                    @endif
+                                    <div>{{ $errors->first('login') }}</div>
+                                </div>
+
+
+
         <br>
          </div>
 
@@ -100,6 +117,7 @@
                     <div class="single-blog-item">
                     <h4>Latest Blog</h4>
                     <br>
+                        @if(!empty($user_latest_blog))
                         <img src="img/blog/blog-1.jpg" alt="">
                         <div class="blog-widget">
                             <div class="bw-date">{{$user_latest_blog->created_at}}</div>
@@ -107,6 +125,13 @@
 
                         </div>
                         <h4><a href="/singleblog/{{$user_latest_blog->id}}">{{$user_latest_blog->subject}}</a></h4>
+                        
+                        
+                        @else
+                        <p> No Blog, yet. Want to make one</p>
+                        <a href='/newblog'>Click Here Then </a>
+                        
+                        @endif
                     </div>
                 </div>
 
@@ -129,6 +154,61 @@
 
                     </div>
                 </div>
+
+
+
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="single-blog-item">
+                    <h4>My Comment</h4>
+                    <br>
+                        @if(!empty($user_comment))
+                        <img src="img/blog/blog-1.jpg" alt="">
+                        <div class="blog-widget">
+                            <div class="bw-date">{{$user_comment->created_at}}</div>
+                        </div>
+                        <h4><a href="/singleblog/{{$user_comment->blog_id}}">{{$user_comment->subject}}</a></h4>
+                        
+                        
+                        @else
+                        <p> No comment, yet. Comment someone blog's now</p>
+                        <a href='/blog'>Click Here Then </a>
+                        
+                        @endif
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="single-blog-item">
+                    <h4>My Last Transaction</h4>
+                    <br>
+                        @if(!empty($last_transaction))
+                        <div class="blog-widget">
+                        </div>
+                        <h6><a href="/mytransaction/{id}">Order Id: {{$last_transaction->order_id}}</a></h6><br>
+                        <h6><a>Status: {{$last_transaction->status}}</a></h6><br>
+                        <h6><a>Amount: {{$last_transaction->txnamount}}</a></h6><br>
+                        <h6><a>Bank Name : {{$last_transaction->bankname}}</a></h6><br>
+
+
+                        <h4> For other transaction <a href="/mytransaction/"}>Click Here</a></h4>
+                        
+                        @else
+                        <p> No transaction till now, buy something today.</p>
+                        <a href='/mytransaction/'>Click Here Then </a>
+                        
+                        @endif
+                    </div>
+                </div>
+
+
+
+
 
 
 

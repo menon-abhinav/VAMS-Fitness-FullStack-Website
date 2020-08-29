@@ -10,6 +10,9 @@ class Transaction extends Model
         'order_id','txnid','txnamount','txndate','status', 'gatewayname', 'banktxnid', 'bankname'
     ];
  
+    public function order(){
+        return $this->belongsTo(Order::class);
+    }
 
-
+    
 }

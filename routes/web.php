@@ -41,7 +41,9 @@ Route::post('login','AccountController@loginaccess');
 Route::get('logout','AccountController@logout');
 Route::get('verify/{token}','AccountController@verify');
 Route::get('account/delete/{token}','AccountController@delete');
-Route::get('myaccount','AccountController@myaccount');
+Route::get('myaccount','AccountController@myaccount')->middleware('auth');
+Route::get('googlelogin','AccountController@google_redirect');
+Route::get('googlestatus','AccountController@google_status');
 
 
 

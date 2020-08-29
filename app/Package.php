@@ -11,5 +11,9 @@ class Package extends Model
         return $this->hasMany(User::class);
     }
 
+    public function content(){
+        return $this->belongsToMany(Content::class);
+        }
+
 
 }
