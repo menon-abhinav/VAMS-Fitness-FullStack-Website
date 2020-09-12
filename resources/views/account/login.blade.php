@@ -10,7 +10,8 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap"
         rel="stylesheet">
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -126,6 +127,20 @@
 
                                         <input type="password" id="password" name="password">
                                     </div>
+                                    
+
+
+
+                                    <div class="form-group">
+        <label for="captcha">Captcha</label>
+          {!! NoCaptcha::renderJs() !!}
+          {!! NoCaptcha::display() !!}
+        <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
+      </div>
+
+
+
+
                                 </div>
                                 <button type="submit" class="register-btn">Get Started</button>
                             </form>
