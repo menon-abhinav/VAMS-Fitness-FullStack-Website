@@ -8,12 +8,23 @@ use App\Transaction;
 use App\Package;
 use App\User;
 use App\Order;
+use Auth;
+use App\Routine;
 
 class ClassController extends Controller
 {
     // For class page
     public function class(){
+        if (Auth::check()){
+          $active_package =   auth()->user()->plan;
+          $video          =   Routine::where('package_id','=',$active_package['package_id'])->where('days','=',$active_package['days'])->first();
+
+          return view('class.class',compact('video'));
+
+        }
+        else{
         return view('class.index');
+      }
     }
 
     public function confirm_package($id){

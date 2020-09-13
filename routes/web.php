@@ -47,5 +47,7 @@ Route::get('twitterlogin','AccountController@twitter_redirect');
 Route::get('googlestatus','AccountController@google_status');
 // Twitter callback not done
 Route::get('githublogin','AccountController@github_redirect');
+Route::get('githubstatus','AccountController@github_status');
+
 
 

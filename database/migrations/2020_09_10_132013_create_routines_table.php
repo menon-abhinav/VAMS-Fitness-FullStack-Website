@@ -15,6 +15,10 @@ class CreateRoutinesTable extends Migration
     {
         Schema::create('routines', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('package_id');
+            $table->foreign('package_id')->references('id')->on('packages')->onDelete('cascade');
+            $table->integer('days');
+            $table->string('video');
             $table->timestamps();
         });
     }

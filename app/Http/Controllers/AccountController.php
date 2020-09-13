@@ -7,7 +7,10 @@ use App\Http\Requests;
 use App\User;
 use Socialite;
 use App\Mail\EmailVerification;
+use App\Mail\GoogleLinked;
+use App\Mail\GithubLinked;
 use App\Mail\DeleteAccount;
+use Auth;
 
 class AccountController extends Controller
 {
@@ -70,10 +73,10 @@ class AccountController extends Controller
 
     }
     public function myaccount(Request $request){
-        $user_info                  =   $request->user();
-        $user_latest_blog           =   $user_info->blog()->latest()->first();
-        $user_comment               =   $user_info->comment()->latest()->first();
-        $last_transaction           =   $user_info->transaction()->latest()->first();
+        $user_info                             =   $request->user();
+        $user_latest_blog                      =   $user_info->blog()->latest()->first();
+        $user_comment                          =   $user_info->comment()->latest()->first();
+        $last_transaction                      =   $user_info->transaction()->latest()->first();
         return view('account.myaccount',compact('user_latest_blog','user_info','user_comment','last_transaction'));
 
     }
@@ -95,7 +98,74 @@ class AccountController extends Controller
 
 
     public function google_status(){
-        // THIS LOGIC IS REMAINING
-        return view('basic.index');
+        try{
+            $user   =   Socialite::driver('google')->user();
+        }
+        catch(\Exception $e){
+            return redirect('/login');
+        }
+
+        $existingUser   =   User::where('email',$user->email)->first();
+
+        if ($existingUser){
+            if($existingUser['google_id'] == $user->id){
+                Auth::login($existingUser);
+                return redirect('/');
+            }
+            else{
+                $existingUser->google_id            =   $user->id;
+                $existingUser->email_verified_at    =   now();
+                $existingUser->save();
+                \Mail::to($existingUser['email'],$existingUser['first-name'])->send(new GoogleLinked());
+                Auth::login($existingUser);
+                return redirect('/');
+            }
+        }
+        else{
+            $new_user                           =   User::create(['first-name'=>$user->name,'email'=>$user->email,'password'=>PASSWORD_HASH(rand(10000000,9999999999),PASSWORD_BCRYPT)]);
+            $new_user->google_id                =   $user->id;
+            $new_user->email_verified_at        =   now();
+            $new_user->save();
+            \Mail::to($new_user['email'],$new_user['first-name'])->send(new GoogleLinked());
+            Auth::login($new_user);
+            return redirect('/');
+        }
+
+    }
+
+    public function github_status(){
+        try{
+            $user   =   Socialite::driver('github')->user();
+        }
+        catch(\Exception $e){
+            return redirect('/login');
+        }
+
+        $existingUser   =   User::where('email',$user->email)->first();
+
+        if ($existingUser){
+            if($existingUser['github_id'] == $user->id){
+                Auth::login($existingUser);
+                return redirect('/');
+            }
+            else{
+                $existingUser->github_id            =   $user->id;
+                $existingUser->email_verified_at    =   now();
+                $existingUser->save();
+                \Mail::to($existingUser['email'],$existingUser['first-name'])->send(new GithubLinked());
+                Auth::login($existingUser);
+                return redirect('/');
+            }
+        }
+        else{
+            $new_user                           =   User::create(['first-name'=>$user->name,'email'=>$user->email,'password'=>PASSWORD_HASH(rand(10000000,9999999999),PASSWORD_BCRYPT)]);
+            $new_user->github_id                =   $user->id;
+            $new_user->email_verified_at        =   now();
+            $new_user->save();
+            \Mail::to($new_user['email'],$new_user['first-name'])->send(new GithubLinked());
+            Auth::login($new_user);
+            return redirect('/');
+        }
+
     }
 }

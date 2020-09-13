@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateContentPackageTable extends Migration
+class CreatePlansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateContentPackageTable extends Migration
      */
     public function up()
     {
-        Schema::create('content_package', function (Blueprint $table) {
+        Schema::create('plans', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('content_id');
-            $table->foreign('content_id')->references('id')->on('contents')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->ondelete('cascade');
             $table->unsignedBigInteger('package_id');
-            $table->foreign('package_id')->references('id')->on('packages')->onDelete('cascade');
+            $table->foreign('package_id')->references('id')->on('packages')->ondelete('cascade');
+            $table->integer('days');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateContentPackageTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('content_package');
+        Schema::dropIfExists('plans');
     }
 }
