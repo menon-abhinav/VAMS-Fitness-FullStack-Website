@@ -53,3 +53,7 @@ Route::get('githubstatus','AccountController@github_status');
 
 
 
+Route::get('/adminuser','AdminController@admin_user');
+
+
+
