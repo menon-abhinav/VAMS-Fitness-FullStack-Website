@@ -9,6 +9,8 @@ use Socialite;
 use App\Mail\EmailVerification;
 use App\Mail\GoogleLinked;
 use App\Mail\GithubLinked;
+use App\Mail\TwitterLinked;
+
 use App\Mail\DeleteAccount;
 use Auth;
 
@@ -74,8 +76,8 @@ class AccountController extends Controller
     }
     public function myaccount(Request $request){
         $user_info                             =   $request->user();
-        $user_latest_blog                      =   $user_info->blog()->latest()->first();
-        $user_comment                          =   $user_info->comment()->latest()->first();
+        $user_latest_blog                      =   $request->user()->blog->first();
+        $user_comment                          =   $request->user()->comment->first();
         $last_transaction                      =   $user_info->transaction()->latest()->first();
         return view('account.myaccount',compact('user_latest_blog','user_info','user_comment','last_transaction'));
 
@@ -168,4 +170,46 @@ class AccountController extends Controller
         }
 
     }
+
+
+
+    public function twitter_status(){
+        try{
+            $user   =   Socialite::driver('twitter')->user();
+        }
+        catch(\Exception $e){
+            return redirect('/login');
+        }
+
+        $existingUser   =   User::where('email',$user->email)->first();
+
+        if ($existingUser){
+            if($existingUser['twitter_id'] == $user->id){
+                Auth::login($existingUser);
+                return redirect('/');
+            }
+            else{
+                $existingUser->twitter_id            =   $user->id;
+                $existingUser->email_verified_at    =   now();
+                $existingUser->save();
+                \Mail::to($existingUser['email'],$existingUser['first-name'])->send(new TwitterLinked());
+                Auth::login($existingUser);
+                return redirect('/');
+            }
+        }
+        else{
+            $new_user                           =   User::create(['first-name'=>$user->name,'email'=>$user->email,'password'=>PASSWORD_HASH(rand(10000000,9999999999),PASSWORD_BCRYPT)]);
+            $new_user->twitter_id                =   $user->id;
+            $new_user->email_verified_at        =   now();
+            $new_user->save();
+            \Mail::to($new_user['email'],$new_user['first-name'])->send(new TwitterLinked());
+            Auth::login($new_user);
+            return redirect('/');
+        }
+
+    }
+
+
+    
+
 }

@@ -76,7 +76,10 @@
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="bd-text">
-                        <div class="bd-title">
+                        <div class="bd-title"> 
+                        @if($blog->user == auth()->user())
+                        <a href="/blog/delete/{{encrypt($blog->id)}}">Delete</a>
+                        @endif
                             <p>Lots of people tell me that while they want to practise yoga,
                                 they just can’t get off the sofa. Well, no worries. Yoga can be done by the laziest of the laziest. 
                                 Just stay where you are and do this routine;
@@ -138,37 +141,31 @@
                                         <img src="img/blog/blog-posted.jpg" alt="">
                                     </div>
                                 </div>
+                                @foreach($comment as $c)
                                 <div class="col-lg-9">
                                     <div class="ba-text">
-                                        <h5>Megha Mathew</h5>
-                                        <p>Loved the blog. Will surely try to implement in my life.</p>
-                                        <div class="bt-social">
-                                            <a href="#"><i class="fa fa-facebook"></i></a>
-                                            <a href="#"><i class="fa fa-twitter"></i></a>
-                                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                                            <a href="#"><i class="fa fa-instagram"></i></a>
-                                        </div>
+                                        <h5>{{$c->user['first-name']}} {{$c->user['created_at']}}</h5>
+                                        <p>{{gzinflate($c->content)}}</p>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
                         </div>
+                        @if(Auth::check())
                         <div class="leave-comment">
                             <h3>Leave A Comment</h3>
-                            <form action="#">
+                            <form method="POST">
+                            @csrf
                                 <div class="row">
-                                    <div class="col-lg-6">
-                                        <input type="text" placeholder="Name">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <input type="text" placeholder="Email">
                                     </div>
                                     <div class="col-lg-12">
-                                        <textarea placeholder="Messages"></textarea>
+                                        <textarea placeholder="Comments" name="comment"></textarea>
                                         <button type="submit">Send Message</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>

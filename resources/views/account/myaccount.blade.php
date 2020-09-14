@@ -47,7 +47,7 @@
                         <li><a href="/contact">Contacts</a></li>
                         
                         @if(Auth::check())
-                        <li class='active'><a href="/myaccount">My Account</a></li>
+                        <li class='active'><a href="/myaccount">Latest Account</a></li>
                         @endif
 
                     </ul>
@@ -69,10 +69,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <h2>My Account</h2>
+                        <h2>Latest Account</h2>
                         <div class="breadcrumb-option">
                             <a href="./index.html"><i class="fa fa-home"></i> Home</a>
-                            <span>My Account</span>
+                            <span>Latest Account</span>
                         </div>
                     </div>
                 </div>
@@ -138,7 +138,7 @@
 
                 <div class="col-lg-6 col-md-6">
                     <div class="single-blog-item">
-                    <h4>My Profile</h4>
+                    <h4>Latest Profile</h4>
                     <br>
                         <h6><a>First Name   : {{$user_info['first-name']}}</a></h6>
                         <br>
@@ -146,7 +146,39 @@
                         <br>
                         <h6><a>Email        : {{$user_info['email']}}</a></h6>
                         <br>
-                        <h6><a>Mobil        : {{$user_info['mobile']}}</a></h6>
+                        <h6><a>Mobile        : {{$user_info['mobile']}}</a></h6>
+
+                        <br>
+                        <h6><a>Google:
+                        @if ($user_info['google_id']== NULL)
+                        <a href="/googlelogin"> Click here to link </a>
+                        @else
+                        Linked
+                        @endif
+                        </a></h6>
+
+                        <br>
+                        <h6><a>Github:
+                        @if ($user_info['github_id']== NULL)
+                        <a href="/githublogin"> Click here to link </a>
+                        @else
+                        Linked
+                        @endif
+                        </a></h6>
+
+
+                        <br>
+                        <h6><a>Twitter:
+                        @if ($user_info['twitter_id']== NULL)
+         <a href="/twitterlogin"> Click here to link </a>
+                        @else
+                        Linked
+                        @endif
+                        </a></h6>
+
+
+
+
 
                         <br><br><br><br>
                         <a href = '/account/delete/{{encrypt($user_info->id)}}'> Delete Account </a>
@@ -160,14 +192,14 @@
 
                 <div class="col-lg-6 col-md-6">
                     <div class="single-blog-item">
-                    <h4>My Comment</h4>
+                    <h4>Latest Comment</h4>
                     <br>
                         @if(!empty($user_comment))
-                        <img src="img/blog/blog-1.jpg" alt="">
                         <div class="blog-widget">
                             <div class="bw-date">{{$user_comment->created_at}}</div>
                         </div>
-                        <h4><a href="/singleblog/{{$user_comment->blog_id}}">{{$user_comment->subject}}</a></h4>
+                        <p><a>{{gzinflate($user_comment->content)}}</a></p>
+                        <a href= "/singleblog/{{$user_comment->blog_id}}">Click here to read blog</a>
                         
                         
                         @else
@@ -185,7 +217,7 @@
 
                 <div class="col-lg-6 col-md-6">
                     <div class="single-blog-item">
-                    <h4>My Last Transaction</h4>
+                    <h4>Latest Last Transaction</h4>
                     <br>
                         @if(!empty($last_transaction))
                         <div class="blog-widget">

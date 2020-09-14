@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/','BasicController@index')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ;
-Route::get('about','BasicController@about');
+Route::get('aboutus','BasicController@about');
 Route::get('contact','BasicController@contact');
 Route::get('gallery','BasicController@gallery');
 Route::post('contact','BasicController@get_contact');
@@ -24,6 +24,7 @@ Route::get('blog','BlogController@blog');
 Route::get('newblog','BlogController@new');
 Route::post('newblog','BlogController@store');
 Route::get('singleblog/{id}','BlogController@singleblog');
+Route::post('singleblog/{id}','BlogController@comment_blog');
 Route::get('blog/delete/{token}','BlogController@delete');
 Route::get('blog/edit','BlogController@edit'); # Complete this one
 
@@ -43,10 +44,11 @@ Route::get('verify/{token}','AccountController@verify');
 Route::get('account/delete/{token}','AccountController@delete');
 Route::get('myaccount','AccountController@myaccount')->middleware('auth');
 Route::get('googlelogin','AccountController@google_redirect');
-Route::get('twitterlogin','AccountController@twitter_redirect');
-Route::get('googlestatus','AccountController@google_status');
-// Twitter callback not done
 Route::get('githublogin','AccountController@github_redirect');
+Route::get('twitterlogin','AccountController@twitter_redirect');
+
+Route::get('googlestatus','AccountController@google_status');
+Route::get('twitterstatus','AccountController@twitter_status');
 Route::get('githubstatus','AccountController@github_status');
 
 

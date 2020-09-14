@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Blog;
+use App\Comment;
 
 class BlogController extends Controller
 {
@@ -22,7 +23,14 @@ class BlogController extends Controller
     // For Single Blog Page
     public function singleblog($id){
         $blog       =   Blog::find($id);
-        return view('blog.single',compact('blog'));
+        $comment    =   $blog->comment;
+        return view('blog.single',compact('blog','comment'));
+    }
+
+    // For comments for particular blog
+    public function comment_blog(Request $request,$id){
+        $new_comments   =   Comment::create(['blog_id'=>$id,'user_id'=>auth()->user()->id,'content'=>gzdeflate($request->input('comment')),'subject'=>'This would be remoed']);
+        return redirect()->back();
     }
 
     // For Storing new Blog

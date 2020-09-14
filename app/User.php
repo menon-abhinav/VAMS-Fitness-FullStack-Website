@@ -45,7 +45,7 @@ class User extends Authenticatable
 
     // Relation to Blog 
     public function blog(){
-        return $this->hasMany(Blog::class);
+        return $this->hasMany(Blog::class)->latest();
     }
 
     // Relation To Package
@@ -54,7 +54,7 @@ class User extends Authenticatable
     }
 
     public function comment(){
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class)->latest();
     }
 
     public function order(){
