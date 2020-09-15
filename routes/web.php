@@ -53,7 +53,9 @@ Route::get('githubstatus','AccountController@github_status');
 
 
 
-Route::get('/adminuser','AdminController@admin_user');
+Route::get('admin/user','AdminController@admin_user');
+Route::get('admin/delete/account/{id}','AdminController@admin_user_delete');
+Route::get('/admin/sentmail','AdminController@admin_sent_mail');
 
 
 

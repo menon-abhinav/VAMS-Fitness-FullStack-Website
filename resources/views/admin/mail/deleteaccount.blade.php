@@ -1,0 +1,1 @@
+<p>Your account has been deleted by the admin due to the reason of ____________________ </p>

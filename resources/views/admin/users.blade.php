@@ -5,7 +5,7 @@
 
 
 .userchart{
-    width:0spx;
+    width:0px;
 }
 </style>
 </head>
@@ -21,19 +21,22 @@
             <th>Google</th>
             <th>Twitter</th>
             <th>Github</th>
+            <th>Delete</th>
         </tr>
 
         @if($user)
         @foreach($user as $u)
             <tr>
                 <td>{{$u->id}}</td>
-                <td>{{$u['frist-name']}}</td>
+                <td>{{$u['first-name']}}</td>
                 <td>{{$u->email}}</td>
                 <td>{{$u->google_id}}</td>
                 <td>{{$u->twitter_id}}</td>
                 <td>{{$u->github_id}}</td>
+                <td><a href='admin/delete/account/{{$u->id}}'><button>Delete</button></a></td>
             <tr>
         @endforeach
+        @endif
     </table>
 
 </div>
