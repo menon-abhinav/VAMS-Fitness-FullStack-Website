@@ -33,6 +33,6 @@ class EmailVerification extends Mailable
     {
         $this->from('teams.vams@gmail.com', 'VAMS Fitness')
         ->subject('Verify Your VAMS Account')
-        ->view('mail.verify',compact('new_user','token'));
+        ->view('mail.verify');
     }
 }

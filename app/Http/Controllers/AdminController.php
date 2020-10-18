@@ -4,14 +4,59 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
+use App\Blog;
 use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 use App\Mail\Admin_DeleteAccount;
 use App\Mail\Admin_AdminMail;
-
+use App\Transaction;
 
 
 class AdminController extends Controller
 {
+    // Get Request on Admin's Login Page
+    public function get_adminLogin(){
+        return view('admin.login');
+    }
+
+    // Post Request on Admin's Login Page
+    public function post_adminLogin(Request $request){
+        $email      = $request->input('email');
+        $password   = $request->input('password');
+
+        if(Auth::attempt(['email'=>$email,'password'=>$password,'user_type'=>'1'])){
+            return Auth::id();
+            }
+
+        return 'error';
+    }
+
+    // Get Request on Admin's Index Page
+    public function get_adminIndex(){
+        return view('admin.index');
+    }
+
+    // Get Request on Admin's Member Page
+    public function get_adminMember(){
+        $users       =  User::all()->except(Auth::id());
+        return view('admin.member',compact('users'));
+    }
+    
+    // Get Request on Admin's Order Page
+    public function get_adminOrder(){
+        $orders     =   Transaction::all();
+        return view('admin.orders',compact('orders'));
+    }
+
+    // Get Request on Admin's Blog Page
+    public function get_adminBlog(){
+        $blogs      =   Blog::all(); 
+        return view('admin.blog',compact('blogs'));
+    }
+    
+
+
+
     public function admin_user(){
         $user       =   User::all();
         $chart_options = [

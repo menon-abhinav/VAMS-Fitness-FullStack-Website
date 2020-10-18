@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use PaytmWallet;
+
 use App\User;
+use App\Order;
 use Socialite;
 use App\Mail\EmailVerification;
 use App\Mail\GoogleLinked;
@@ -16,25 +19,25 @@ use Auth;
 
 class AccountController extends Controller
 {
-    // For Register Page
-    public function register(){
+    // Get Request on Register Page 
+    public function get_register(){
         return view('account.register');
     }
 
-    // For Creating New User
-    public function new_user(Requests\RegisterRequest $request){
+    // Post Request on Register Page (Creating New User)
+    public function post_register(Requests\RegisterRequest $request){
         $new_user   =   User::create(['first-name'=>$request->get('first-name'),'last-name'=>$request->get('last-name'),'email'=>$request->get('email'),'password'=>PASSWORD_HASH($request->get('password'),PASSWORD_BCRYPT),'mobile'=>$request->get('mobile')]);
         \Mail::to($new_user['email'],$new_user['first-name'])->send(new EmailVerification($new_user));
         return redirect('/register')->withSuccess('Your account has been created please verify it');
     }
 
-    // For Login Page
-    public function login(){
+    // Get Request on Login Page
+    public function get_login(){
         return view('account.login');
     }
 
-    // For Trying Sigin
-    public function loginaccess(Requests\LoginRequest $request){
+    // Post Request on Login Page
+    public function post_login(Requests\LoginRequest $request){
         if(\Auth::attempt(['email'=>$request->input('email'),'password'=>$request->input('password')])){
                 if (\Auth::user()->email_verified_at != Null)
                     return redirect('/');
@@ -46,8 +49,8 @@ class AccountController extends Controller
             return redirect()->back()->withErrors(array('credentials' => 'Username or Password is Wrong'));
     }
 
-    // For Trying Logout
-    public function logout(){
+    // Get Request on logout page
+    public function get_logout(){
         \Auth::logout();
         return redirect('/');
     }
@@ -74,7 +77,9 @@ class AccountController extends Controller
         return "Please go to account section and click on delete account";
 
     }
-    public function myaccount(Request $request){
+
+    // Get Request on My Account Page
+    public function get_myaccount(Request $request){
         $user_info                             =   $request->user();
         $user_latest_blog                      =   $request->user()->blog->first();
         $user_comment                          =   $request->user()->comment->first();
@@ -214,10 +219,24 @@ class AccountController extends Controller
         }
 
         public function vams_wallet_update(Request $request){
-            $user   = User::find($request->user()->id());
-
+            $user           = User::find($request->user()->id);
+            $amount         = $request->input('amount');
+            $new_order      = Order::create(['user_id'=>$request->user()->id]); 
+            $payment    = PaytmWallet::with('receive');
+            
+            $payment->prepare(['order'=>$new_order->id,'user' => $request->user()->id,'mobile_number' => $request->user()->mobile,'email' => $request->user()->email, 'amount' => $amount,'callback_url' => 'http://localhost:8000/status/wallet']); 
+            return $payment->receive();   
         }
 
+
+        public function vams_wallet_update_status(Request $request){
+            $transaction = PaytmWallet::with('receive');
+            $response       =   $transaction->response(); // To get raw response as array
+            
+            return $response;
+
+
+        }
 
 
 

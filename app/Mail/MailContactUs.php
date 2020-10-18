@@ -33,6 +33,6 @@ class MailContactUs extends Mailable
         $this->from('teams.vams@gmail.com', 'VAMS Fitness')
         ->to('teams-vams@googlegroups.com','VAMS Call-Centre')
         ->subject('New Query From Unknown Client')
-        ->view('mail.contact',compact('content'));
+        ->view('mail.contact');
     }
 }

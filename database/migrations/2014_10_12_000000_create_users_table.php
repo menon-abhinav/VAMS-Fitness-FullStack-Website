@@ -22,9 +22,10 @@ class CreateUsersTable extends Migration
             $table->string('google_id')->nullable();
             $table->string('twitter_id')->nullable();
             $table->string('github_id')->nullable();
-
+            $table->integer('user_type')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->unsignedFloat('wallet')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
