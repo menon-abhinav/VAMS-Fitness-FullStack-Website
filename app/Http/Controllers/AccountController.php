@@ -209,6 +209,17 @@ class AccountController extends Controller
 
     }
 
+        public function vams_wallet(){
+            return view('account.vams_wallet');
+        }
+
+        public function vams_wallet_update(Request $request){
+            $user   = User::find($request->user()->id());
+
+        }
+
+
+
 
     
 
