@@ -29,7 +29,7 @@ class BlogController extends Controller
 
     // For comments for particular blog
     public function comment_blog(Request $request,$id){
-        $new_comments   =   Comment::create(['blog_id'=>$id,'user_id'=>auth()->user()->id,'content'=>gzdeflate($request->input('comment')),'subject'=>'This would be remoed']);
+        $new_comments   =   Comment::create(['blog_id'=>$id,'user_id'=>auth()->user()->id,'content'=>gzdeflate($request->input('comment'))]);
         return redirect()->back();
     }
 

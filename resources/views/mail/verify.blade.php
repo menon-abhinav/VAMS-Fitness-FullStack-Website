@@ -340,8 +340,8 @@ ul.social li{
             		<td>
             			<div class="text" style="padding: 0 2.5em; text-align: center;">
             				<h2>{{$new_user['first-name']}}  {{$new_user['last-name']}} Please verify your email</h2>
-            				<h3>Amazing deals, class, blogs right in your inbox by VAMS</h3>
-            				<p><a href="http://localhost:8000/verify/{{$token}}" class="btn btn-primary">Yes! Subscribe Me</a></p>
+            				<h3>Be A Part Of VAMS Family Today</h3>
+            				<p><a href="http://localhost:8000/verify/{{$token}}" class="btn btn-primary">Yes! Verify Me</a></p>
             			</div>
             		</td>
             	</tr>
@@ -384,10 +384,10 @@ ul.social li{
                       <td style="text-align: left; padding-left: 10px;">
                       	<h3 class="heading">Useful Links</h3>
                       	<ul>
-					                <li><a href="index.html">Home</a></li>
-					                <li><a href="about-us.html">About</a></li>
-					                <li><a href="shop.html">Shop</a></li>
-					                <li><a href="contact.html">Contact</a></li>
+					                <li><a href="http://localhost:8000/">Home</a></li>
+					                <li><a href="http://localhost:8000/aboutus">About</a></li>
+					                <li><a href="http://localhost:8000/shop">Shop</a></li>
+					                <li><a href="http://localhost:8000/contact">Contact</a></li>
 					              </ul>
                       </td>
                     </tr>

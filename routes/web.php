@@ -30,13 +30,13 @@ Route::get('blog/edit','BlogController@edit'); # Complete this one
 
 Route::get('shop','ShopController@shop');
 
-Route::get('class','ClassController@class');
-Route::get('confirmpackage/{id}','ClassController@confirm_package');# Show according to seleted package
-Route::post('confirmpackage/{id}','ClassController@package_purchase');
+Route::get('class','ClassController@class')->middleware('auth');
+// Route::get('confirmpackage/{id}','ClassController@confirm_package');# Show according to seleted package
+Route::get('confirmpackage/{id}','ClassController@package_purchase');
 Route::post('packages','ClassController@paymentCallback');
 
 Route::get('register','AccountController@get_register');
-Route::post('register','AccountController@new_user');
+Route::post('register','AccountController@post_register');
 Route::get('login','AccountController@get_login')->name('login');
 Route::post('login','AccountController@post_login');
 Route::get('logout','AccountController@get_logout');

@@ -38,9 +38,9 @@
             <div class="nav-menu">
                 <nav class="mainmenu mobile-menu">
                     <ul>
-                        <li class="active"><a href="/">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <li><a href="/aboutus">About</a></li>
-                        <li><a href="/class">Classes</a></li>
+                        <li class = "active"><a href="/class">Classes</a></li>
                         <li><a href="/blog">Blog</a></li>
                         <li><a href="/shop">Shop</a></li>
                         <li><a href="/gallery">Gallery</a></li>
@@ -81,6 +81,58 @@
     </section>
     <!-- Breadcrumb Section End -->
 
+
+    @if (Auth::user()->plan == null)
+   <!-- Membership Section Begin -->
+   <section class="membership-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>MEMBERSHIP PLANS</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach($packages as $package)
+            <div class="col-lg-4">
+                <div class="membership-item">
+                    <div class="mi-title">
+                    <h4>{{$package->name}}</h4>
+                        <div class="triangle"></div>
+                    </div>
+                <h2 class="mi-price">₹ {{$package->price}}<span>/01 mo</span></h2>
+                    <ul>
+                        <li>
+                            <p>Duration</p>
+                        <span>{{$package->days}} days</span>
+                        </li>
+                        <li>
+                            <p>Personal trainer</p>
+                            <span>00 person</span>
+                        </li>
+                        <li>
+                            <p>Amount of people</p>
+                            <span>01 person</span>
+                        </li>
+                        <li>
+                            <p>Number of visits</p>
+                            <span>Unlimited</span>
+                        </li>
+                    </ul>
+                    <a href="/confirmpackage/{$product->id}" class="primary-btn membership-btn">Start Now</a>
+                </div>
+            </div>
+            @endforeach
+            
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Membership Section End -->
+
+    
+    @else
     <!-- Video Section Begin -->
     <section class="register-section classes-page spad">
         <div class="container">
@@ -88,79 +140,9 @@
         </div>
     </section>
     <!-- Video Section End -->
-
-    <!-- Classes Section Begin -->
-    <section class="classes-section spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2>UNLIMITED CLASSES</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row classes-slider owl-carousel">
-                <div class="col-lg-4">
-                    <div class="single-class-item set-bg" data-setbg="img/classes/classes-1.jpg">
-                        <div class="si-text">
-                            <h4>Yoga</h4>
-                            <span><i class="fa fa-user"></i> Manish Pillai</span>
-                        </div>
-                    </div>
-                    <div class="single-class-item set-bg" data-setbg="img/classes/classes-4.jpg">
-                        <div class="si-text">
-                            <h4>Karate</h4>
-                            <span><i class="fa fa-user"></i> Venkatesh Nair</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="single-class-item set-bg" data-setbg="img/classes/classes-2.jpg">
-                        <div class="si-text">
-                            <h4>Running</h4>
-                            <span><i class="fa fa-user"></i> Abhinav Menon</span>
-                        </div>
-                    </div>
-                    <div class="single-class-item set-bg" data-setbg="img/classes/classes-5.jpg">
-                        <div class="si-text">
-                            <h4>Zumba</h4>
-                            <span><i class="fa fa-user"></i> Siddharth Shah</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="single-class-item set-bg" data-setbg="img/classes/classes-3.jpg">
-                        <div class="si-text">
-                            <h4>Personal Training</h4>
-                            <span><i class="fa fa-user"></i> Manish Pillai</span>
-                        </div>
-                    </div>
-                    <div class="single-class-item set-bg" data-setbg="img/classes/classes-6.jpg">
-                        <div class="si-text">
-                            <h4>Weight Loss</h4>
-                            <span><i class="fa fa-user"></i> Venkatesh Nair</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="single-class-item set-bg" data-setbg="img/classes/classes-7.jpg">
-                        <div class="si-text">
-                            <h4>Aerobic</h4>
-                            <span><i class="fa fa-user"></i> Siddharth Shah</span>
-                        </div>
-                    </div>
-                    <div class="single-class-item set-bg" data-setbg="img/classes/classes-8.jpg">
-                        <div class="si-text">
-                            <h4>Flexibilty</h4>
-                            <span><i class="fa fa-user"></i> Abhinav Menon</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Classes Section End -->
-
+    @endif
+    <br>
+    <br>
     <!-- Classes Timetable Section Begin -->
     <section class="classes-timetable spad">
         <div class="container">

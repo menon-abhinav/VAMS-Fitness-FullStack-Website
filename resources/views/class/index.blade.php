@@ -26,35 +26,41 @@
         <div class="loader"></div>
     </div>
 
-    <!-- Header Section Begin -->
     <header class="header-section">
         <div class="container">
             <div class="logo">
                 <a href="./index.html">
-                    <h3>VAMS FITNESS</h3>
+                    <h3>VAMS Fitness</h3>
                     <!-- <img src="img/logo.png" alt=""> -->
                 </a>
             </div>
             <div class="nav-menu">
                 <nav class="mainmenu mobile-menu">
                     <ul>
-                        <li><a href="./index.html">Home</a></li>
-                        <li><a href="./about-us.html">About</a></li>
-                        <li class="active"><a href="./classes.html">Classes</a></li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./shop.html">Shop</a></li>
-                        <li><a href="./gallery.html">Gallery</a></li>
-                        <li><a href="./contact.html">Contacts</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/aboutus">About</a></li>
+                        <li class = "active"><a href="/class">Classes</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/shop">Shop</a></li>
+                        <li><a href="/gallery">Gallery</a></li>
+                        <li><a href="/contact">Contacts</a></li>
+                        
+                        @if(Auth::check())
+                        <li><a href="/myaccount">My Account</a></li>
+                        @endif
+
                     </ul>
                 </nav>
+                @if(Auth::check())
+                <a href="/logout" class="primary-btn signup-btn">Logout</a>
+                @else
                 <a href="#" class="primary-btn signup-btn">Sign Up Today</a>
+                @endif
             </div>
             <div id="mobile-menu-wrap"></div>
         </div>
-    </header>
-    <!-- Header End -->
-
-    <!-- Breadcrumb Section Begin -->
+    </header>   
+        <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="img/her.jpg">
         <div class="container">
             <div class="row">

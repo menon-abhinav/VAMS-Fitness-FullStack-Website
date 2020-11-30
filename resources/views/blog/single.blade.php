@@ -12,12 +12,12 @@
         rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{URL::asset('css/font-awesome.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{URL::asset('css/owl.carousel.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{URL::asset('css/magnific-popup.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{URL::asset('css/slicknav.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{URL::asset('css/style.css')}}" type="text/css">
 </head>
 
 <body>
@@ -32,36 +32,45 @@
             <div class="logo">
                 <a href="./index.html">
                     <h3>VAMS Fitness</h3>
-                    <!-- <img src="img/logo.png" alt=""> -->
+                    {{-- <!-- <img src="img/logo.png" alt=""> --> --}}
                 </a>
             </div>
             <div class="nav-menu">
                 <nav class="mainmenu mobile-menu">
                     <ul>
-                        <li class="active"><a href="./index.html">Home</a></li>
-                        <li><a href="./about-us.html">About</a></li>
-                        <li><a href="./classes.html">Classes</a></li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./shop.html">Shop</a></li>
-                        <li><a href="./gallery.html">Gallery</a></li>
-                        <li><a href="./contact.html">Contacts</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/aboutus">About</a></li>
+                        <li><a href="/class">Classes</a></li>
+                        <li class="active"><a href="/blog">Blog</a></li>
+                        <li><a href="/shop">Shop</a></li>
+                        <li><a href="/gallery">Gallery</a></li>
+                        <li><a href="/contact">Contacts</a></li>
+                        
+                        @if(Auth::check())
+                        <li><a href="/myaccount">My Account</a></li>
+                        @endif
+
                     </ul>
                 </nav>
+                @if(Auth::check())
+                <a href="/logout" class="primary-btn signup-btn">Logout</a>
+                @else
                 <a href="#" class="primary-btn signup-btn">Sign Up Today</a>
+                @endif
             </div>
             <div id="mobile-menu-wrap"></div>
         </div>
-    </header>
+    </header>   
+
     <!-- Header End -->
 
     <!-- Blog Details Hero Section Begin -->
-    <section class="blog-details-hero set-bg" data-setbg="img/her.jpg">
+    <section class="blog-details-hero set-bg" data-setbg="{{URL::asset('img/her.jpg')}}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="bd-hero-text">
-                        <span>CAMERA</span>
-                        <h2>Feeling lazy in the morning? Begin your day with this yogasana<br/> Closures</h2>
+                    <h2>Blog</h2>
                     </div>
                 </div>
             </div>
@@ -77,70 +86,23 @@
                 <div class="col-lg-10 offset-lg-1">
                     <div class="bd-text">
                         <div class="bd-title"> 
+                        <h2>{{$blog->subject}}</h2>
+
+                        <hr>
+                        <h6>By {{$blog->user['first-name']}} {{$blog->user['last-name']}} @ {{$blog->created_at}}</h6>
                         @if($blog->user == auth()->user())
                         <a href="/blog/delete/{{encrypt($blog->id)}}">Delete</a>
                         @endif
-                            <p>Lots of people tell me that while they want to practise yoga,
-                                they just can’t get off the sofa. Well, no worries. Yoga can be done by the laziest of the laziest. 
-                                Just stay where you are and do this routine;
-                                I guarantee that you will be abuzz with positive energy afterwards.</p>
-                            <p>If you, too, are in that sloth-like slump, and you absolutely need to sprinkle a little productivity into your day,
-                                but have no idea where to get started, try meandering your way over to your yoga mat and adding some of these low-key poses to your flow.
-                                Honestly, you'll probably feel pretty productive already, 
-                                just for performing the sheer act of setting up your mat for practice. Ah, the joys of being lazy.</p>
-                        </div>
-                        <div class="bd-pic">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <img src="img/blog/bd-1.jpg" alt="">
-                                </div>
-                                <div class="col-lg-6">
-                                    <img src="img/blog/bd-2.jpg" alt="">
-                                </div>
-                            </div>
                         </div>
                         <div class="bd-more-text">
                             <div class="bm-item">
-                                <h4>1. Easy Pose (Sukhasana)</h4>
                                 <p>{{gzinflate($blog->content)}}</p>
                             </div>
                             <div class="bm-item">
                             </div>
                         </div>
-                        <div class="bd-quote">
-                            <samp>"</samp>
-                            <p>“The attitude towards the gratitude is the highest in Yoga.”</p>
-                            <div class="quote-author">
-                                <h5>Yogi Bhajan</h5>
-                                <span>Yogi </span>
-                            </div>
-                        </div>
-                        <div class="bd-last-para">
-                            <p>As you're chilling in balasana, scan your body and release any unnecessary tension that you may be holding on to.
-                                Inhale deeply into your belly, and exhale slowly and audibly out of your mouth.</p>
-                        </div>
-                        <div class="tag-share">
-                            <div class="tags">
-                                <a href="#">Camera</a>
-                                <a href="#">Photography</a>
-                                <a href="#">Tips</a>
-                            </div>
-                            <div class="social-share">
-                                <span>Share:</span>
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                <a href="#"><i class="fa fa-youtube-play"></i></a>
-                            </div>
-                        </div>
                         <div class="blog-author">
                             <div class="row">
-                                <div class="col-lg-3">
-                                    <div class="ba-pic">
-                                        <img src="img/blog/blog-posted.jpg" alt="">
-                                    </div>
-                                </div>
                                 @foreach($comment as $c)
                                 <div class="col-lg-9">
                                     <div class="ba-text">
@@ -173,7 +135,7 @@
     </section>
     <!-- Blog Details Section End -->
 
-    <!-- Latest Blog Section Begin -->
+    {{-- <!-- Latest Blog Section Begin -->
     <section class="latest-blog-section recommend spad">
         <div class="container">
             <div class="row">
@@ -215,7 +177,7 @@
             </div>
         </div>
     </section>
-    <!-- Latest Blog Section End -->
+    <!-- Latest Blog Section End --> --}}
 
     <!-- Footer Section Start -->
         <footer class="footer-section">
@@ -269,13 +231,13 @@
     <!-- Footer Section Ends -->
 
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="{{ URL :: asset ('js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{ URL :: asset ('js/bootstrap.min.js')}}"></script>
+    <script src="{{ URL :: asset ('js/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{ URL :: asset ('js/mixitup.min.js')}}"></script>
+    <script src="{{ URL :: asset ('js/jquery.slicknav.js')}}"></script>
+    <script src="{{ URL :: asset ('js/owl.carousel.min.js')}}"></script>
+    <script src="{{ URL :: asset ('js/main.js')}}"></script>
 </body>
 
 </html>

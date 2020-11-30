@@ -31,17 +31,17 @@
         <div class="container">
             <div class="logo">
                 <a href="./index.html">
-                    <h3>VAMS FITNESS</h3>
+                    <h3>VAMS Fitness</h3>
                     <!-- <img src="img/logo.png" alt=""> -->
                 </a>
             </div>
             <div class="nav-menu">
-            <nav class="mainmenu mobile-menu">
+                <nav class="mainmenu mobile-menu">
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/aboutus">About</a></li>
                         <li><a href="/class">Classes</a></li>
-                        <li  class = "active"><a href="/blog">Blog</a></li>
+                        <li class ="active"><a href="/blog">Blog</a></li>
                         <li><a href="/shop">Shop</a></li>
                         <li><a href="/gallery">Gallery</a></li>
                         <li><a href="/contact">Contacts</a></li>
@@ -60,7 +60,7 @@
             </div>
             <div id="mobile-menu-wrap"></div>
         </div>
-    </header>
+    </header>   
     <!-- Header End -->
 
     <!-- Breadcrumb Section Begin -->

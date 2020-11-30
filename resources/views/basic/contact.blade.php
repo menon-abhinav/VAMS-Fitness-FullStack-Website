@@ -12,12 +12,12 @@
         rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="{{URL :: asset('css/bootstrap.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{URL :: asset('css/font-awesome.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{URL :: asset('css/owl.carousel.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{URL :: asset('css/magnific-popup.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{URL :: asset('css/slicknav.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{URL :: asset('css/style.css')}}" type="text/css">
 </head>
 
 <body>
@@ -31,27 +31,36 @@
         <div class="container">
             <div class="logo">
                 <a href="./index.html">
-                    <h3>VAMS FITNESS</h3>
+                    <h3>VAMS Fitness</h3>
                     <!-- <img src="img/logo.png" alt=""> -->
                 </a>
             </div>
             <div class="nav-menu">
                 <nav class="mainmenu mobile-menu">
                     <ul>
-                        <li><a href="./index.html">Home</a></li>
-                        <li><a href="./about-us.html">About</a></li>
-                        <li><a href="./classes.html">Classes</a></li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./gallery.html">Shop</a></li>
-                        <li><a href="./gallery.html">Gallery</a></li>
-                        <li class="active"><a href="./contact.html">Contacts</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/aboutus">About</a></li>
+                        <li><a href="/class">Classes</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/shop">Shop</a></li>
+                        <li><a href="/gallery">Gallery</a></li>
+                        <li class="active"><a href="/contact">Contacts</a></li>
+                        
+                        @if(Auth::check())
+                        <li><a href="/myaccount">My Account</a></li>
+                        @endif
+
                     </ul>
                 </nav>
+                @if(Auth::check())
+                <a href="/logout" class="primary-btn signup-btn">Logout</a>
+                @else
                 <a href="#" class="primary-btn signup-btn">Sign Up Today</a>
+                @endif
             </div>
             <div id="mobile-menu-wrap"></div>
         </div>
-    </header>
+    </header>   
     <!-- Header End -->
 
     <!-- Breadcrumb Section Begin -->
@@ -218,13 +227,13 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="{{URL :: asset('js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{URL :: asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{URL :: asset('js/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{URL :: asset('js/mixitup.min.js')}}"></script>
+    <script src="j{{URL :: asset('s/jquery.slicknav.js')}}"></script>
+    <script src="{{URL :: asset('js/owl.carousel.min.js')}}"></script>
+    <script src="{{URL :: asset('js/main.js')}}"></script>
 </body>
 
 </html>

@@ -11,14 +11,15 @@ class PaymentFailed extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $transaction;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($transaction)
     {
-        //
+        $this->transaction = $transaction;
     }
 
     /**
@@ -29,7 +30,7 @@ class PaymentFailed extends Mailable
     public function build()
     {
         $this->from('teams.vams@gmail.com', 'VAMS Fitness')
-        ->subject('Successful : Payment Receipt')
+        ->subject('Failed : Payment Receipt')
         ->view('mail.payment.failed');
     }
 }
