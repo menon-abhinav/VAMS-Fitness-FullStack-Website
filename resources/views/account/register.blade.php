@@ -105,6 +105,12 @@
 
                             <form method="POST" class="register-form">
                                 @csrf
+
+                                <a href = "/googlelogin"><i class="fa fa-google" style="font-size:24px"></i></a>
+                                <a href = "/githublogin"><i class="fa fa-github" style="font-size:24px"></i></a>
+                                <a href = "/twitterlogin"><i class="fa fa-twitter" style="font-size:24px"></i></a>
+
+                                
                                 <div class="row">
                                     <div class="col-lg-6">
 

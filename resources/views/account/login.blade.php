@@ -10,6 +10,7 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap"
         rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
     <!-- Css Styles -->
@@ -96,8 +97,9 @@
                             <form method="POST" class="register-form">
                                 @csrf
 
-
-
+                                <a href = "/googlelogin"><i class="fa fa-google" style="font-size:24px"></i></a>
+                                <a href = "/githublogin"><i class="fa fa-github" style="font-size:24px"></i></a>
+                                <a href = "/twitterlogin"><i class="fa fa-twitter" style="font-size:24px"></i></a>
 
                                 <div class="alert alert-warning">
                                     @if(Session::has('verify'))
