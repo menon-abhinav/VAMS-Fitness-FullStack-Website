@@ -131,6 +131,7 @@ class AccountController extends Controller
         else{
             $new_user                           =   User::create(['first-name'=>$user->name,'email'=>$user->email,'password'=>PASSWORD_HASH(rand(10000000,9999999999),PASSWORD_BCRYPT)]);
             $new_user->google_id                =   $user->id;
+            $new_user->mobile               = 0000000000;
             $new_user->email_verified_at        =   now();
             $new_user->save();
             \Mail::to($new_user['email'],$new_user['first-name'])->send(new GoogleLinked());
@@ -167,6 +168,8 @@ class AccountController extends Controller
         else{
             $new_user                           =   User::create(['first-name'=>$user->name,'email'=>$user->email,'password'=>PASSWORD_HASH(rand(10000000,9999999999),PASSWORD_BCRYPT)]);
             $new_user->github_id                =   $user->id;
+            $new_user->mobile               = 0000000000;
+
             $new_user->email_verified_at        =   now();
             $new_user->save();
             \Mail::to($new_user['email'],$new_user['first-name'])->send(new GithubLinked());
@@ -205,6 +208,7 @@ class AccountController extends Controller
         else{
             $new_user                           =   User::create(['first-name'=>$user->name,'email'=>$user->email,'password'=>PASSWORD_HASH(rand(10000000,9999999999),PASSWORD_BCRYPT)]);
             $new_user->twitter_id                =   $user->id;
+            $new_user->mobile               = 0000000000;
             $new_user->email_verified_at        =   now();
             $new_user->save();
             \Mail::to($new_user['email'],$new_user['first-name'])->send(new TwitterLinked());
