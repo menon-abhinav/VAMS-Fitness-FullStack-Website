@@ -96,7 +96,7 @@
                         </div>
                         <div class="bd-more-text">
                             <div class="bm-item">
-                                <p>{{gzinflate($blog->content)}}</p>
+                                {{gzinflate($blog->content)}}
                             </div>
                             <div class="bm-item">
                             </div>
