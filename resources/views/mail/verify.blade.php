@@ -384,10 +384,10 @@ ul.social li{
                       <td style="text-align: left; padding-left: 10px;">
                       	<h3 class="heading">Useful Links</h3>
                       	<ul>
-					                <li><a href="http://localhost:8000/">Home</a></li>
-					                <li><a href="http://localhost:8000/aboutus">About</a></li>
-					                <li><a href="http://localhost:8000/shop">Shop</a></li>
-					                <li><a href="http://localhost:8000/contact">Contact</a></li>
+					                <li><a href="https://vams-fitness.herokuapp/">Home</a></li>
+					                <li><a href="https://vams-fitness.herokuapp/aboutus">About</a></li>
+					                <li><a href="https://vams-fitness.herokuapp/shop">Shop</a></li>
+					                <li><a href="https://vams-fitness.herokuapp/contact">Contact</a></li>
 					              </ul>
                       </td>
                     </tr>

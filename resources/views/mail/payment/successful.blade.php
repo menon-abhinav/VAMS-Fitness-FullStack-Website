@@ -407,10 +407,10 @@ ul.social li{
                       <td style="text-align: left; padding-left: 10px;">
                       	<h3 class="heading">Useful Links</h3>
                       	<ul>
-					                <li><a href="index.html">Home</a></li>
-					                <li><a href="about-us.html">About</a></li>
-					                <li><a href="shop.html">Shop</a></li>
-					                <li><a href="contact.html">Contact</a></li>
+							<li><a href="https://vams-fitness.herokuapp/">Home</a></li>
+							<li><a href="https://vams-fitness.herokuapp/aboutus">About</a></li>
+							<li><a href="https://vams-fitness.herokuapp/shop">Shop</a></li>
+							<li><a href="https://vams-fitness.herokuapp/contact">Contact</a></li>
 					              </ul>
                       </td>
                     </tr>

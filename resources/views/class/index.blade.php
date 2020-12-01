@@ -29,7 +29,7 @@
     <header class="header-section">
         <div class="container">
             <div class="logo">
-                <a href="./index.html">
+                <a href="/">
                     <h3>VAMS Fitness</h3>
                     <!-- <img src="img/logo.png" alt=""> -->
                 </a>
@@ -54,7 +54,7 @@
                 @if(Auth::check())
                 <a href="/logout" class="primary-btn signup-btn">Logout</a>
                 @else
-                <a href="#" class="primary-btn signup-btn">Sign Up Today</a>
+                <a href="/register" class="primary-btn signup-btn">Sign Up Today</a>
                 @endif
             </div>
             <div id="mobile-menu-wrap"></div>

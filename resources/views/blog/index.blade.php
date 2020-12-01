@@ -55,7 +55,7 @@
                 @if(Auth::check())
                 <a href="/logout" class="primary-btn signup-btn">Logout</a>
                 @else
-                <a href="#" class="primary-btn signup-btn">Sign Up Today</a>
+                <a href="/register" class="primary-btn signup-btn">Sign Up Today</a>
                 @endif
             </div>
             <div id="mobile-menu-wrap"></div>
@@ -71,7 +71,7 @@
                     <div class="breadcrumb-text">
                         <h2>Blog</h2>
                         <div class="breadcrumb-option">
-                            <a href="./index.html"><i class="fa fa-home"></i> Home</a>
+                            <a href="/"><i class="fa fa-home"></i> Home</a>
                             <span>Blog</span>
                         </div>
                     </div>
