@@ -96,11 +96,14 @@
                             </div>
                             <form method="POST" class="register-form">
                                 @csrf
-
-                                <a href = "/googlelogin"><i class="fa fa-google" style="font-size:24px"></i></a>
-                                <a href = "/githublogin"><i class="fa fa-github" style="font-size:24px"></i></a>
-                                <a href = "/twitterlogin"><i class="fa fa-twitter" style="font-size:24px"></i></a>
-
+                                
+                                <p> Login using : </p>
+                                <a href = "/googlelogin"><i class="fa fa-google" style="font-size:32px"></i></a>
+                                &nbsp;&nbsp;&nbsp;<a href = "/githublogin"><i class="fa fa-github" style="font-size:32px"></i></a>
+                                &nbsp;&nbsp;&nbsp;<a href = "/twitterlogin"><i class="fa fa-twitter" style="font-size:32px"></i></a>
+                                <br>
+                                <br>
+                                <p> OR :</p>
                                 <div class="alert alert-warning">
                                     @if(Session::has('verify'))
                                     <div>{{ Session::get('verify') }}</div>
