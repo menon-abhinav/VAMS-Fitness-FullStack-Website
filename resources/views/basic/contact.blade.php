@@ -166,8 +166,8 @@
 
 
 
-                                    <textarea placeholder="Your messages" name="message"></textarea>
-                                    <button type="submit">Send Message</button>
+                                    <input type = "text" placeholder="Your messages" name="message">
+                                    <input type="submit" value= "submit">
                                 </div>
                             </div>
                         </form>
