@@ -32,6 +32,6 @@ class DeleteAccount extends Mailable
     {
         $this->from('teams.vams@gmail.com', 'VAMS Fitness')
         ->subject('Your VAMS account is deleted')
-        ->view('mail.delete',compact('user'));
+        ->view('mail.delete');
     }
 }
