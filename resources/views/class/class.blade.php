@@ -120,7 +120,7 @@
                             <span>Unlimited</span>
                         </li>
                     </ul>
-                    <a href="/confirmpackage/"{{$product->id}} class="primary-btn membership-btn">Start Now</a>
+                    <a href="/confirmpackage/{{$product->id}}" class="primary-btn membership-btn">Start Now</a>
                 </div>
             </div>
             @endforeach
