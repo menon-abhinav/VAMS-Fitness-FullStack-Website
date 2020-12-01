@@ -47,7 +47,7 @@ class ClassController extends Controller
         // GENERATA ORDER ID
 
         $new_order  = Order::create(['user_id'=>$request->user()->id]);
-        $payment->prepare(['order' => $new_order->id,'user' => $request->user()->id,'mobile_number' => $request->user()->mobile,'email' => $request->user()->email, 'amount' => $package->price,'callback_url' => 'http://localhost:8000/packages']);
+        $payment->prepare(['order' => $new_order->id,'user' => $request->user()->id,'mobile_number' => $request->user()->mobile,'email' => $request->user()->email, 'amount' => $package->price,'callback_url' => 'https://vams-fitness.herokuapp.com/packages']);
         return $payment->receive();
     }
 
