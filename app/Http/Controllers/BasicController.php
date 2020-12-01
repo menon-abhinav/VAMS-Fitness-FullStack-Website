@@ -35,8 +35,7 @@ class BasicController extends Controller
         $content    =   $request->validated();
 
         if (Auth::check()){
-            Contact::create(['user_id'=>Auth::id(),'message'=>$request->message]);
-
+            Contact::create(['user_id'=>$request->user()->id,'message'=>$request->input('message')]);
         }
         else{
         \Mail::send(new MailContactUs($content));
