@@ -15,6 +15,16 @@ class CreateContactsTable extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
+   
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+   
+            $table->text('message');
+   
+            $table->unsignedBigInteger('reply_user_id')->nullable();
+            $table->foreign('reply_user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->text('reply')->nullable();
             $table->timestamps();
         });
     }
