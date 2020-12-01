@@ -42,13 +42,13 @@ return [
 
     'google' => [
         'client_id' => '275838996165-1i66enm9tqpm1a1dvgfoih7lgtoif2t1.apps.googleusercontent.com',
-        'client_secret' => 'ptwxZz-sjiek_Xq2QTR9P8qd',
-        'redirect' => 'http://localhost:8000/googlestatus'],
+        'client_secret' => 'pz9N5t1-llE7VVlfcCNsj3WN',
+        'redirect' => 'https://vams-fitness.herokuapp.com/googlestatus'],
 
         'twitter' => [
             'client_id' => '0pq50jEz4kARAadujyBiBqu4a',
             'client_secret' => 'RvQDLueK8TxuoEEXcM1vyX0g0dAUBdnLM9PpBJwtwQDv4Dbkwa',
-            'redirect' => 'http://localhost:8000/twitterstatus',
+            'redirect' => 'https://vams-fitness.herokuapp.com/twitterstatus',
         ],
 
         'github' => [

@@ -341,7 +341,7 @@ ul.social li{
             			<div class="text" style="padding: 0 2.5em; text-align: center;">
             				<h2>{{$new_user['first-name']}}  {{$new_user['last-name']}} Please verify your email</h2>
             				<h3>Be A Part Of VAMS Family Today</h3>
-            				<p><a href="http://localhost:8000/verify/{{$token}}" class="btn btn-primary">Yes! Verify Me</a></p>
+            				<p><a href="https://vams-fitness.herokuapp.com/verify/{{$token}}" class="btn btn-primary">Yes! Verify Me</a></p>
             			</div>
             		</td>
             	</tr>
