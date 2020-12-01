@@ -134,7 +134,10 @@
                         <h4>Leave A Query</h4>
                         <form method = "POST">
                         @csrf
+
+                            
                             <div class="row">
+                                @if (!Auth::check())
                                 <div class="col-lg-6">
                                   
                                 @if($errors->has('name'))
@@ -153,6 +156,7 @@
 
                                     <input type="text" placeholder="Your email" name="email">
                                 </div>
+                                @endif
                                 <div class="col-lg-12">
 
 

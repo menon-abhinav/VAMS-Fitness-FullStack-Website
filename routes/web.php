@@ -20,8 +20,11 @@ Route::get('contact','BasicController@contact');
 Route::get('gallery','BasicController@gallery');
 Route::post('contact','BasicController@get_contact');
 
+Route::get('query','ContactController@get_query');
+Route::post('query','ContactController@post_query');
+
 Route::get('blog','BlogController@blog');
-Route::get('newblog','BlogController@new');
+Route::get('newblog','BlogController@new')->middleware('auth');
 Route::post('newblog','BlogController@store');
 Route::get('singleblog/{id}','BlogController@singleblog');
 Route::post('singleblog/{id}','BlogController@comment_blog');
