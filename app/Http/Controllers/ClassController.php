@@ -64,7 +64,7 @@ class ClassController extends Controller
 
             // If user already registered, then just update
 
-            Plan::create(['user_id'=>$user->id,'package_id'=>$package->id,'days'=>$package->days]); 
+            Plan::create(['user_id'=>$user->id,'package_id'=>$package->id,'days'=>1]); 
             \Mail::to($request->user()['email'],$request->user()['first-name'])->send(new PaymentSuccessful($newTransaction));# Take response
             $status = 'Payment Successful'; 
             $redirect = '/class';
