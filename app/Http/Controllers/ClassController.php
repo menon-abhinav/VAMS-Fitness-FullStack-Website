@@ -57,7 +57,7 @@ class ClassController extends Controller
     {
         $transaction = PaytmWallet::with('receive');
         $response       =   $transaction->response(); // To get raw response as array
-        $newTransaction =   Transaction::create(['order_id'=>$response['ORDERID'],'txnid'=>$response['TXNID'],'txnamount'=>$response['TXNAMOUNT'],'banktxnid'=>$response['BANKTXNID'],'txndate'=>$response['TXNDATE'],'status'=>$response['STATUS'],'bankname'=>$response['BANKNAME'],'gatewayname'=>$response['GATEWAYNAME']]);
+        $newTransaction =   Transaction::create(['order_id'=>$response['ORDERID']-4000,'txnid'=>$response['TXNID'],'txnamount'=>$response['TXNAMOUNT'],'banktxnid'=>$response['BANKTXNID'],'txndate'=>$response['TXNDATE'],'status'=>$response['STATUS'],'bankname'=>$response['BANKNAME'],'gatewayname'=>$response['GATEWAYNAME']]);
         if($transaction->isSuccessful()){
             $user               = User::find($request->user()->id);
             $package   = Package::find(session('id')); 
