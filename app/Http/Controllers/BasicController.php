@@ -34,15 +34,17 @@ class BasicController extends Controller
     // For Contact Page Submit
     public function post_contact(Requests\ContactUsRequest $request){
         $content    =   $request->validated();
-
+        $message    =   'There was some error in sending the message';
         if (Auth::check()){
             Contact::create(['user_id'=>$request->user()->id,'message'=>$request->input('message')]);
+            $message    = 'Your message has been sent, you will reply in VAMS inbox shortly';
         }
         else{
         \Mail::send(new MailContactUs($content));
+        $message    = 'Your message has been sent, you will get a reply in email soon';
         // Actually show a success message
         }
-        return redirect('/contact');
+        return redirect('/contact',compact('message'));
 
     }
 }
