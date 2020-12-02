@@ -63,7 +63,7 @@ Route::get('admin/sentmail','AdminController@admin_sent_mail');
 
 Route::get('adminlogin','AdminAccountController@get_adminLogin');
 Route::post('adminlogin','AdminAccountController@post_adminLogin');
-Route::get('admin','AdminController@get_adminIndex');
+Route::get('admin','AdminController@get_adminIndex')->name('admin');
 Route::get('adminmember','AdminController@get_adminMember');
 Route::get('adminorder','AdminController@get_adminOrder');
 Route::get('adminblog','AdminController@get_adminBlog');
