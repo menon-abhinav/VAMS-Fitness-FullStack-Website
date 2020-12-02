@@ -18,7 +18,7 @@ class AdminController extends Controller
     public function __construct()
     {
         if (!Auth::check()) {
-            return redirect('/adminlogin');
+            Redirect::to('login')->send();
        }
 }
 
