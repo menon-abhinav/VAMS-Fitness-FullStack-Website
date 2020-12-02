@@ -29,10 +29,19 @@
     <table border=1>
 
     <tr>
-        <th>Name</th>
+        <th>User ID</th>
         <th>OrderID</th>
         <th>TXNID</th>
         <th>Amount</th>
+        <th>Date</th>
+        <th>Status</th>
+
+        <th>Gateway</th>
+        <th>Bank Txn ID</th>
+
+        <th>Bank Name</th>
+
+
     </tr>
 
 
@@ -41,6 +50,14 @@
     <tr>
         <td>{{$order->order->user['id']}}</td>
         <td>{{$order['order_id']}}</td>
+        <td>{{$order['txnid']}}</td>
+        <td>{{$order['txnamount']}}</td>
+        <td>{{$order['txndate']}}</td>
+        <td>{{$order['status']}}</td>
+        <td>{{$order['gateway']}}</td>
+        <td>{{$order['banktxnid']}}</td>
+        <td>{{$order['bankname']}}</td>
+
     </tr>
     @endforeach
   </table>
