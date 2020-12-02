@@ -104,8 +104,9 @@
                                     <img src="img/icon/icon-1.png" alt="">
                                 </div>
                                 <div class="cw-text">
-                                    <h5>Our Location</h5>
-                                    <p>PCE, New Panvel</p>
+                                    <h5>FeedBack Form</h5>
+                        <a href = "https://www.surveymonkey.com/r/V2ZBT8S"><p> Review Us</p></a>
+
                                 </div>
                             </div>
                             <div class="ca-widget">
@@ -124,11 +125,6 @@
                                 <div class="cw-text">
                                     <h5>Mail</h5>
                                     <p>vamsfitness@ gmail.com</p>
-                                </div>
-                                <div class="cw-text">
-                                    <h5>Feedback</h5>
-                        <a href = "https://www.surveymonkey.com/r/V2ZBT8S"><p> Review Us</p></a>
-
                                 </div>
                             </div>
                         </div>
