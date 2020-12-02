@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','BasicController@index')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ;
 Route::get('aboutus','BasicController@about');
-Route::get('contact','BasicController@contact');
+Route::get('contact','BasicController@contact')->name('contact');
 Route::get('gallery','BasicController@gallery');
 Route::post('contact','BasicController@post_contact');
 
