@@ -16,12 +16,11 @@ use App\Transaction;
 class AdminController extends Controller
 {
 
-    public function __construct()
-    {
-        if (!Auth::check()) {
-            Redirect::to('adminlogin')->send();
-       }
-}
+    public function __construct() {
+        $this->middleware('auth');
+      
+    }
+
 
     // Get Request on Admin's Index Page
     public function get_adminIndex(){
