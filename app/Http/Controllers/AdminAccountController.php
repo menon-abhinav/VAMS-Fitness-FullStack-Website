@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Support\Facades\Redirect;
+
 class AdminAccountController extends Controller
 {
       // Get Request on Admin's Login Page
@@ -17,7 +19,7 @@ class AdminAccountController extends Controller
         $password   = $request->input('password');
 
         if(Auth::attempt(['email'=>$email,'password'=>$password,'user_type'=>'1'])){
-            return redirect('/admin');
+            Redirect::to('admin')->send();
             }
 
         return 'error';
