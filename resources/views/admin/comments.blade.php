@@ -31,7 +31,7 @@
         <th>Date</th>
         <th>Delete</th>
     </tr>
-	@foreach($blogs as $blog)
+	@foreach($comments as $comment)
 
     <tr>
     <td>{{$comment->user_id}}</td>
