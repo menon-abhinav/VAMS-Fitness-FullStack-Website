@@ -25,7 +25,7 @@ class AdminController extends Controller
 
     // Get Request on Admin's Index Page
     public function get_adminIndex(){
-        if(Auth::user()->user_type == 1){
+        if(Auth::user()->user_type == 0){
             return redirect('/adminlogin');
         }
         return view('admin.index');
@@ -33,7 +33,7 @@ class AdminController extends Controller
 
     // Get Request on Admin's Member Page
     public function get_adminMember(){
-        if(Auth::user()->user_type == 1){
+        if(Auth::user()->user_type == 0){
             return redirect('/adminlogin');
         }
         $users       =  User::all()->except(Auth::id());
@@ -42,7 +42,7 @@ class AdminController extends Controller
     
     // Get Request on Admin's Order Page
     public function get_adminOrder(){
-        if(Auth::user()->user_type == 1){
+        if(Auth::user()->user_type == 0){
             return redirect('/adminlogin');
         }
         $orders     =   Transaction::all();
@@ -51,7 +51,7 @@ class AdminController extends Controller
 
     // Get Request on Admin's Blog Page
     public function get_adminBlog(){
-        if(Auth::user()->user_type == 1){
+        if(Auth::user()->user_type == 0){
             return redirect('/adminlogin');
         }
         $blogs      =   Blog::all(); 
