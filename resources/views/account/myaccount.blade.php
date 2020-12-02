@@ -92,7 +92,7 @@
         <div>
         <div class="alert alert-warning">
         @if($user_info->plan !=null)
-    <p> Your current plan is {{$user_info->package['name']}}</p>
+    <p> Your current plan is Active</p>
     @else
     <p> No Package. Buy a package now. <a href='/class'>Click Here </a><p>
     @endif
