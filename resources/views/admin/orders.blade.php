@@ -41,14 +41,6 @@
 </div>
 <br>
 
-<div id="content2">
-	CONTENT 2
-</div>
-
-<!--<div id="content3">
-	CONTENT 3
-</div>-->
-
 <script>
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
