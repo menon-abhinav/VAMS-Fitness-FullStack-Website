@@ -18,6 +18,9 @@ class AdminController extends Controller
 
     public function __construct() {
         $this->middleware('auth');
+        if(auth()->user()->user_type == 1){
+            return redirect('/adminlogin');
+        }
       
     }
 
