@@ -17,7 +17,7 @@ class AdminAccountController extends Controller
         $password   = $request->input('password');
 
         if(Auth::attempt(['email'=>$email,'password'=>$password,'user_type'=>'1'])){
-            return Auth::id();
+            return redirect('/admin');
             }
 
         return 'error';
