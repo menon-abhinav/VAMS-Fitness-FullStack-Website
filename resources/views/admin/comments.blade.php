@@ -35,8 +35,9 @@
 
     <tr>
     <td>{{$com->user_id}}</td>
-      <td>{{$com->subject}}</td>
+      <td>{{$com->blog_id}}</td>
     <td>{{gzinflate($com->content)}}</td>
+    <td>{{$com->created_at}}</td>
     <td><a href = "/admincomment/delete/{{$com->id}}">Delete</a></td>
       </tr>
     @endforeach
