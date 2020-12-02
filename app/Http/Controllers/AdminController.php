@@ -90,4 +90,11 @@ class AdminController extends Controller
     }
         return redirect()->back();
     }
+    
+
+    public function admin_deleteblog($id){
+        $blog   = Blog::find($id);
+        $blog->delete();
+        return redirect()->back();
+    }
 }

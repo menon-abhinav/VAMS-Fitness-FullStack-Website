@@ -28,6 +28,7 @@
         <th>User Id</th>
         <th>Subject</th>
         <th>Content</th>
+        <th>Delete</th>
     </tr>
 	@foreach($blogs as $blog)
 
@@ -35,6 +36,7 @@
     <td>{{$blog->user_id}}</td>
       <td>{{$blog->subject}}</td>
     <td>{{gzinflate($blog->content)}}</td>
+    <td><a href = "/adminblog/delete/{{$blog->id}}">Delete</a></td>
       </tr>
     @endforeach
     </table>

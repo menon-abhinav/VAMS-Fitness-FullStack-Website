@@ -19,14 +19,6 @@
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
 </div>
 
-<div id="content1">
-	CONTENT 1
-</div>
-<br>
-
-<div id="content2">
-	CONTENT 2
-</div>
 
 <!--<div id="content3">
 	CONTENT 3
