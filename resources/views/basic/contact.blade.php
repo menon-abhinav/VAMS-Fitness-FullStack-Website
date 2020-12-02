@@ -125,9 +125,16 @@
                                     <h5>Mail</h5>
                                     <p>vamsfitness@ gmail.com</p>
                                 </div>
+                                <div class="cw-text">
+                                    <h5>Feedback</h5>
+                        <a href = "https://www.surveymonkey.com/r/V2ZBT8S"><p> Review Us</p></a>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </div> 
+                    </div> 
+                </div> 
                 </div>
                 <div class="col-lg-8">
                     <div class="contact-form">
