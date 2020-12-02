@@ -8,12 +8,10 @@
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">Home</a>
-  <a href="#">Members</a>
-  <a href="#">Orders</a>
-  <a href="#">Charts</a>
-  <a href="#">Pages</a>
-  <a href="#">More...</a>
+  <a href="/admin">Home</a>
+  <a href="/adminmember">Members</a>
+  <a href="/adminorder">Orders</a>
+  <a href = "/adminblog">Blog</a>
 </div>
 
 <div id="main">
