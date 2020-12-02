@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 use App\Blog;
+use Redirect;
 use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 use App\Mail\Admin_DeleteAccount;
 use App\Mail\Admin_AdminMail;
