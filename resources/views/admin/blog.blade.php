@@ -25,16 +25,17 @@
     <table border=1>
 
     <tr>
-        <th>Name</th>
-        <th>OrderID</th>
-        <th>TXNID</th>
-        <th>Amount</th>
+        <th>User Id</th>
+        <th>Subject</th>
+        <th>Content</th>
     </tr>
 	@foreach($blogs as $blog)
 
     <tr>
-        <td>{{$blog->subject}}</td>
-    </tr>
+    <td>{{$blog->user_id}}</td>
+      <td>{{$blog->subject}}</td>
+    <td>{{gzinflate($blog->content)}}</td>
+      </tr>
     @endforeach
     </table>
 </div>
