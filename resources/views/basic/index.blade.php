@@ -50,13 +50,16 @@
                         <li><a href="/myaccount">My Account</a></li>
                         @endif
 
+                        @if(Auth::check())
+                        <a href="/logout" class="primary-btn signup-btn">Logout</a>
+                        @else
+                        <a href="/register" class="primary-btn signup-btn">Sign Up Today</a>
+                        @endif
+                        
                     </ul>
+
                 </nav>
-                @if(Auth::check())
-                <a href="/logout" class="primary-btn signup-btn">Logout</a>
-                @else
-                <a href="/register" class="primary-btn signup-btn">Sign Up Today</a>
-                @endif
+
             </div>
             <div id="mobile-menu-wrap"></div>
         </div>
