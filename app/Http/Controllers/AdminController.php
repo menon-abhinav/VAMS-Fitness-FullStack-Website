@@ -18,32 +18,42 @@ class AdminController extends Controller
 
     public function __construct() {
         $this->middleware('auth');
-        if(Auth::user()->user_type == 1){
-            return redirect('/adminlogin');
-        }
+
       
     }
 
 
     // Get Request on Admin's Index Page
     public function get_adminIndex(){
+        if(Auth::user()->user_type == 1){
+            return redirect('/adminlogin');
+        }
         return view('admin.index');
     }
 
     // Get Request on Admin's Member Page
     public function get_adminMember(){
+        if(Auth::user()->user_type == 1){
+            return redirect('/adminlogin');
+        }
         $users       =  User::all()->except(Auth::id());
         return view('admin.member',compact('users'));
     }
     
     // Get Request on Admin's Order Page
     public function get_adminOrder(){
+        if(Auth::user()->user_type == 1){
+            return redirect('/adminlogin');
+        }
         $orders     =   Transaction::all();
         return view('admin.orders',compact('orders'));
     }
 
     // Get Request on Admin's Blog Page
     public function get_adminBlog(){
+        if(Auth::user()->user_type == 1){
+            return redirect('/adminlogin');
+        }
         $blogs      =   Blog::all(); 
         return view('admin.blog',compact('blogs'));
     }
