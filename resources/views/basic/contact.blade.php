@@ -205,6 +205,13 @@
                         <p>vamsfitness@gmail.com</p>
                     </div>
                 </div>
+
+                <div class="col-lg-4">
+                    <div class="contact-option">
+                        <span>Feedback</span>
+                        <p><a href = "https://www.surveymonkey.com/r/V2ZBT8S"> Review Us</a></p>
+                    </div>
+                </div>
             </div>
             <div class="subscribe-option set-bg" data-setbg="img/footer-signup.jpg">
                 <div class="so-text">
