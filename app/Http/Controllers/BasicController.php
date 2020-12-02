@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Mail\MailContactUs;
 use App\Http\Requests;
 use App\Contact;
+use Auth;
 
 
 class BasicController extends Controller
@@ -31,7 +32,7 @@ class BasicController extends Controller
     }
     
     // For Contact Page Submit
-    public function get_contact(Requests\ContactUsRequest $request){
+    public function post_contact(Requests\ContactUsRequest $request){
         $content    =   $request->validated();
 
         if (Auth::check()){

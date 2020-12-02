@@ -18,7 +18,7 @@ Route::get('/','BasicController@index')                                         
 Route::get('aboutus','BasicController@about');
 Route::get('contact','BasicController@contact');
 Route::get('gallery','BasicController@gallery');
-Route::post('contact','BasicController@get_contact');
+Route::post('contact','BasicController@post_contact');
 
 Route::get('query','ContactController@get_query');
 Route::post('query','ContactController@post_query');
