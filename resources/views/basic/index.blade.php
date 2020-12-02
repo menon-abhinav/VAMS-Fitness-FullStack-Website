@@ -100,7 +100,7 @@
                         <p class="second-para">We believe fitness should be accessible to everyone, everywhere, 
                             regardless of income or access to a gym. With hundreds of professional workouts, healthy
                             recipes and informative articles, you’ll have everything you need to reach your personal fitness goals !!!</p>
-                        <a href="#" class="primary-btn">Read More</a>
+                        <a href="/aboutus" class="primary-btn">Read More</a>
                     </div>
                 </div>
             </div>
@@ -247,12 +247,6 @@
                             <span>Leader</span>
                             <p>Venkatesh Nair has worked in the fitness industry since his early 
                                 college days and is a social activist.</p>
-                            <div class="trainer-social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-pinterest"></i></a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -264,12 +258,6 @@
                             <span>Gym coach</span>
                             <p>Manish Pillai is not only a Gym Coach but also a Yoga Expert with work 
                                 experience.</p>
-                            <div class="trainer-social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-pinterest"></i></a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -281,12 +269,6 @@
                             <span>Fitness trainer</span>
                             <p>Abhinav Menon is a well known Running and Flexibilty 
                                 Expert.</p>
-                            <div class="trainer-social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-pinterest"></i></a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -352,7 +334,7 @@
                         <h2>Get training today</h2>
                         <p>What are you waiting for join the VAMS Fitness Family Today itself
                             and lead your way towards the transformation.</p>
-                        <a href="#" class="primary-btn banner-btn">Contact Now</a>
+                        <a href="/contact" class="primary-btn banner-btn">Contact Now</a>
                     </div>
                 </div>
                 <div class="col-lg-5">
@@ -418,7 +400,7 @@
                         <span>New member</span>
                         <h2>7 days for free</h2>
                         <p>Complete the training sessions with us, surely you will be happy</p>
-                        <a href="#" class="primary-btn">Get Started</a>
+                        <a href="/class" class="primary-btn">Get Started</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -426,7 +408,7 @@
                         <span>contact us</span>
                         <h2>7350650458</h2>
                         <p>If you trust us on your journey then we assure you we wont't disappoint you!</p>
-                        <a href="#" class="primary-btn">Get Started</a>
+                        <a href="/class" class="primary-btn">Get Started</a>
                     </div>
                 </div>
             </div>
