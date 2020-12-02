@@ -31,13 +31,13 @@
         <th>Date</th>
         <th>Delete</th>
     </tr>
-	@foreach($comments as $comment)
+	@foreach($comment as $com)
 
     <tr>
-    <td>{{$comment->user_id}}</td>
-      <td>{{$comment->subject}}</td>
-    <td>{{gzinflate($comment->content)}}</td>
-    <td><a href = "/admincomment/delete/{{$comment->id}}">Delete</a></td>
+    <td>{{$com->user_id}}</td>
+      <td>{{$com->subject}}</td>
+    <td>{{gzinflate($com->content)}}</td>
+    <td><a href = "/admincomment/delete/{{$com->id}}">Delete</a></td>
       </tr>
     @endforeach
     </table>
