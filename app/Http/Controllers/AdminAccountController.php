@@ -18,8 +18,15 @@ class AdminAccountController extends Controller
         $email      = $request->input('email');
         $password   = $request->input('password');
 
-        if(Auth::attempt(['email'=>$email,'password'=>$password,'user_type'=>'1'])){
-            Redirect::to('admin')->send();
+        if(Auth::attempt(['email'=>$email,'password'=>$password])){
+            
+                if (Auth::user()->user_type == 1){
+                        Redirect::to('admin')->send();
+                    }
+                else{
+                    Auth::logout();
+                    return redirect('/login');
+                }
             }
 
         return 'error';

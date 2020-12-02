@@ -13,7 +13,6 @@
             <p>Password</p>
             <input type="password" name="password" placeholder="Enter Password">
             <input type="submit" name="submit" value="Login">
-            <a href="#">Lost your password?</a><br>
         </form>
         
     </div>
