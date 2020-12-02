@@ -44,6 +44,6 @@ class BasicController extends Controller
         $message    = 'Your message has been sent, you will get a reply in email soon';
         // Actually show a success message
         }
-        return redirect()->back()->with('message', $message);
+        return view('basic.contact',compact('message'));
     }
 }
