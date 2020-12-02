@@ -12,4 +12,11 @@ class Contact extends Model
         'reply_user_id',
         'reply_message'
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+
+    }
 }
+
+

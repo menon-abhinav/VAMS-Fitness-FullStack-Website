@@ -20,6 +20,8 @@ Route::get('contact','BasicController@contact')->name('contact');
 Route::get('gallery','BasicController@gallery');
 Route::post('contact','BasicController@post_contact');
 
+Route::get('contact/status','AccountController@get_contactStatus');
+
 Route::get('query','ContactController@get_query');
 Route::post('query','ContactController@post_query');
 

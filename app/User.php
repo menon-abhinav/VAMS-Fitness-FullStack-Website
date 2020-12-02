@@ -68,4 +68,10 @@ class User extends Authenticatable
     public function plan(){
         return $this->hasOne(Plan::class);
     }
+
+    public function contact(){
+        return $this->hasMany(Contact::class)->latest();
+    }
 }
+
+

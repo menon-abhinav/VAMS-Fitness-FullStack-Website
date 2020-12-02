@@ -64,7 +64,7 @@
     <!-- Header End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/her.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="{{URL :: asset('img/her.jpg')}}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -96,88 +96,38 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="contact-info">
-                        <h4>Contacts Us</h4>
-                        <div class="contact-address">
-                            <div class="ca-widget">
-                                <div class="cw-icon">
-                                    <img src="img/icon/icon-1.png" alt="">
-                                </div>
-                                <div class="cw-text">
-                                    <h5>FeedBack Form</h5>
-                        <a href = "https://www.surveymonkey.com/r/V2ZBT8S"><p> Review Us</p></a>
-
-                                </div>
-                            </div>
                             <div class="ca-widget">
                                 <div class="cw-icon">
                                     <img src="img/icon/icon-2.png" alt="">
                                 </div>
-                                <div class="cw-text">
-                                    <h5>Phone:</h5>
-                                    <p>+91 7350650458</p>
-                                </div>
                             </div>
                             <div class="ca-widget">
-                                <div class="cw-icon">
-                                    <img src="img/icon/icon-3.png" alt="">
-                                </div>
-                                <div class="cw-text">
-                                    <h5>Mail</h5>
-                                    <p>teams.vams@gmail.com</p>
-                                </div>
                             </div>
+
                         </div>
                     </div> 
-                </div>
-                <div class="col-lg-8">
-                    <div class="contact-form">
-                        <h4>Leave A Query</h4>
-                        <p> To check past query <a href = "/contact/status"> Click Here </a></p>
-                        @if (!empty($message))
-                        <div>{{$message}}</div>
-                        @endif
 
-                        <form method = "POST">
-                        @csrf
+                    <a href = '/contact'> Go Back to contact page </a>
+                    <table border = 1>
+                        <tr>
+                            <th>Date</th>
+                            <th>Message</th>
+                            <th>Reply Date</th>
+                            <th>Reply</th>
 
-                            
-                            <div class="row">
-                                @if (!Auth::check())
-                                <div class="col-lg-6">
-                                  
-                                @if($errors->has('name'))
-                                    <label>{{$errors->first('name')}}</label>
-                                @endif
+                        </tr>
 
+                        @foreach ($contacts as $contact)
+                        <tr>
+                        <td>{{$contact['created_at']}}</td>
+                        <td>{{$contact['message']}}</td>
+                        <td>{{$contact['updated_at']}}</td>
+                        <td>{{$contact['reply']}}</td>
 
-                                    <input type="text" placeholder="Your name" name="name">
-                                </div>
-                                <div class="col-lg-6">
+                        </tr>
+                        @endforeach
 
-                                @if($errors->has('email'))
-                                    <label>{{$errors->first('email')}}</label>
-                                @endif
-
-
-                                    <input type="text" placeholder="Your email" name="email">
-                                </div>
-                                @endif
-                                <div class="col-lg-12">
-
-
-                                @if($errors->has('message'))
-                                    <label>{{$errors->first('message')}}</label>
-                                @endif
-
-
-
-                                    <input type = "text" placeholder="Your messages" name="message">
-                                    <input type="submit" value= "Submit">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                    </table>
                 </div>
             </div>
         </div>
@@ -187,19 +137,6 @@
     <!-- Footer Section Begin -->
     <footer class="footer-section">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="contact-option">
-                        <span>Phone</span>
-                        <p>+917350650458 - (0251) 2734608</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="contact-option">
-                        <span>Address</span>
-                        <p>PCE ,Triveni Society, Sector 16, New Panvel East, Panvel, Navi Mumbai, Maharashtra 410206
-                        </p>
-                    </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="contact-option">
@@ -248,7 +185,7 @@
     <script src="{{URL :: asset('js/bootstrap.min.js')}}"></script>
     <script src="{{URL :: asset('js/jquery.magnific-popup.min.js')}}"></script>
     <script src="{{URL :: asset('js/mixitup.min.js')}}"></script>
-    <script src="j{{URL :: asset('s/jquery.slicknav.js')}}"></script>
+    <script src="{{URL :: asset('s/jquery.slicknav.js')}}"></script>
     <script src="{{URL :: asset('js/owl.carousel.min.js')}}"></script>
     <script src="{{URL :: asset('js/main.js')}}"></script>
 </body>

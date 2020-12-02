@@ -54,7 +54,7 @@
         <td>{{$order['txnamount']}}</td>
         <td>{{$order['txndate']}}</td>
         <td>{{$order['status']}}</td>
-        <td>{{$order['gateway']}}</td>
+        <td>{{$order['gatewayname']}}</td>
         <td>{{$order['banktxnid']}}</td>
         <td>{{$order['bankname']}}</td>
 

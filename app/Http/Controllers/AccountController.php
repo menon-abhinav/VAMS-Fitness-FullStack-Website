@@ -238,8 +238,11 @@ class AccountController extends Controller
             $response       =   $transaction->response(); // To get raw response as array
             
             return $response;
+        }
 
-
+        public function get_contactStatus(){
+            $contacts = Auth::user()->contact;
+            return view('basic.contactstatus',compact('contacts'));
         }
 
 
