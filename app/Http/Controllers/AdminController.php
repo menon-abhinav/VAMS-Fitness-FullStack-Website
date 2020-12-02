@@ -17,9 +17,11 @@ class AdminController extends Controller
 
     public function __construct()
     {
-        if (!Auth::check()) return redirect('/adminlogin');
-    }
-    
+        if (!Auth::check()) {
+            return redirect('/adminlogin');
+       }
+}
+
     // Get Request on Admin's Index Page
     public function get_adminIndex(){
         return view('admin.index');
