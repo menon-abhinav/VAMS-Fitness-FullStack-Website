@@ -26,7 +26,7 @@
 
     <tr>
         <th>User Id</th>
-        <th>Subject</th>
+        <th>Blog ID</th>
         <th>Content</th>
         <th>Date</th>
         <th>Delete</th>
@@ -34,11 +34,10 @@
 	@foreach($blogs as $blog)
 
     <tr>
-    <td>{{$blog->user_id}}</td>
-      <td>{{$blog->subject}}</td>
-    <td>{{gzinflate($blog->content)}}</td>
-    <td>{{$blog->created_at}}</td>
-    <td><a href = "/adminblog/delete/{{$blog->id}}">Delete</a></td>
+    <td>{{$comment->user_id}}</td>
+      <td>{{$comment->subject}}</td>
+    <td>{{gzinflate($comment->content)}}</td>
+    <td><a href = "/admincomment/delete/{{$comment->id}}">Delete</a></td>
       </tr>
     @endforeach
     </table>

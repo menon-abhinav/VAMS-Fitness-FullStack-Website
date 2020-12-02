@@ -68,6 +68,9 @@ Route::get('adminmember','AdminController@get_adminMember');
 Route::get('adminorder','AdminController@get_adminOrder');
 Route::get('adminblog','AdminController@get_adminBlog');
 Route::get('adminblog/delete/{id}','AdminController@admin_deleteblog');
+Route::get('admincomment','AdminController@get_adminComment');
+Route::get('admincomment/delete/{id}','AdminController@get_adminComment');
+
 
 Route::get('vamswallet','AccountController@vams_wallet');
 Route::post('vamswallet','AccountController@vams_wallet_update');

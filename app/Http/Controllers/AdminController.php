@@ -97,4 +97,15 @@ class AdminController extends Controller
         $blog->delete();
         return redirect()->back();
     }
+
+    public function get_adminComment(){
+        $comment = Comment::all();
+        return view('admin.comments',compact('comment'));
+    }
+
+    public function admin_deletecomment($id){
+        $comment    = Comment::find($id);
+        $comment->delete();
+        return redirect()->back();
+    }
 }
