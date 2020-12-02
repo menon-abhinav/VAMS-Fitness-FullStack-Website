@@ -21,7 +21,7 @@ class AdminAccountController extends Controller
         if(Auth::attempt(['email'=>$email,'password'=>$password])){
             
                 if (Auth::user()->user_type == 1){
-                        Redirect::to('/')->send();
+                        return redirect('/admin');
                     }
 
                 else{
