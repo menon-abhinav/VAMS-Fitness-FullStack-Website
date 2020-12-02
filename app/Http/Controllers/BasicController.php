@@ -33,7 +33,7 @@ class BasicController extends Controller
     
     // For Contact Page Submit
     public function post_contact(Requests\ContactUsRequest $request){
-        $content    =   $request->validated();
+        $content    =   ['name'=>$request->input('name'),'email'=>$request->input('email'),'message'=>$request->input('message')];
         $message    =   'There was some error in sending the message';
         if (Auth::check()){
             Contact::create(['user_id'=>$request->user()->id,'message'=>$request->input('message')]);
