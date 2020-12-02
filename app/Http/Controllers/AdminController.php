@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Comment;
 use Auth;
 use App\Blog;
 use Illuminate\Support\Facades\Redirect;
