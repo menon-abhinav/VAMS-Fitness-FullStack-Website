@@ -14,23 +14,12 @@ use App\Transaction;
 
 class AdminController extends Controller
 {
-    // Get Request on Admin's Login Page
-    public function get_adminLogin(){
-        return view('admin.login');
+
+    public function __construct()
+    {
+        if (!Auth::check()) return redirect('/adminlogin');
     }
-
-    // Post Request on Admin's Login Page
-    public function post_adminLogin(Request $request){
-        $email      = $request->input('email');
-        $password   = $request->input('password');
-
-        if(Auth::attempt(['email'=>$email,'password'=>$password,'user_type'=>'1'])){
-            return Auth::id();
-            }
-
-        return 'error';
-    }
-
+    
     // Get Request on Admin's Index Page
     public function get_adminIndex(){
         return view('admin.index');
