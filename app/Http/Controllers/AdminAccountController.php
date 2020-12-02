@@ -19,7 +19,12 @@ class AdminAccountController extends Controller
         $password   = $request->input('password');
 
         if(Auth::attempt(['email'=>$email,'password'=>$password])){
+            if (Auth::user()->user_type != 0)
             return redirect('/admin');
+          else{
+            Auth::logout();
+            return redirect('/login')->with('verify','You dont have access to admin');
+          }
             }
 
         return 'error';
