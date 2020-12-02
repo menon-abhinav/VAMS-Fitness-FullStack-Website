@@ -99,7 +99,6 @@
                 @foreach($blog as $bl)
                 <div class="col-lg-4 col-md-6">
                     <div class="single-blog-item">
-                        <img src="img/blog/blog-1.jpg" alt="">
                         <div class="blog-widget">
                             <div class="bw-date">{{$bl->created_at}}</div>
                             <a class="tag">{{$bl->user['first-name']}} {{$bl->user['last-name']}}</a>

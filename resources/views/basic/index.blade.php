@@ -55,7 +55,7 @@
                         @else
                         <a href="/register" class="primary-btn signup-btn">Sign Up Today</a>
                         @endif
-                        
+
                     </ul>
 
                 </nav>
@@ -326,6 +326,8 @@
         </div>
     </section>
     <!-- Testimonial Section End -->
+
+{{-- copy it --}}
 
     <!-- Banner Section Begin -->
     <section class="banner-section set-bg" data-setbg="img/banner-bg.jpg">

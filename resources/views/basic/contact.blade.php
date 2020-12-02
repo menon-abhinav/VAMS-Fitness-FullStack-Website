@@ -124,7 +124,7 @@
                                 </div>
                                 <div class="cw-text">
                                     <h5>Mail</h5>
-                                    <p>vamsfitness@ gmail.com</p>
+                                    <p>@gmail.com</p>
                                 </div>
                             </div>
                         </div>
