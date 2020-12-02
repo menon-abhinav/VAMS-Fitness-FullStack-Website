@@ -7,6 +7,7 @@ use App\User;
 use App\Comment;
 use Auth;
 use App\Blog;
+use App\Contact;
 use Illuminate\Support\Facades\Redirect;
 use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 use App\Mail\Admin_DeleteAccount;
@@ -111,7 +112,28 @@ class AdminController extends Controller
     }
 
     public function get_adminContact(){
-        $contact = Contact::all();
+        $contact = Contact::where('reply_user_id',null)->get();
         return view('admin.contact',compact('contact'));
+    }
+
+    public function get_adminContactReply($id){
+        $contact    = Contact::find($id);
+
+        return view('admin.singlecontact',compact('contact'));
+
+    }
+
+    public function post_adminContactReply(Request $request,$id){
+        $contact = Contact::find($id);
+        $contact->reply_user_id = Auth::id();
+        $contact->reply = $request->input('reply_message');
+        $contact->save();
+
+        return redirect('/admincontact');
+    }
+
+    public function get_adminContactAllReply(){
+        $contact = Contact::where('reply_user_id','!=',null)->get();
+        return view('admin.contactreply',compact('contact'));
     }
 }

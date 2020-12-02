@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="css/admin_style_2.css">
+<link rel="stylesheet" type="text/css" href="{{URL :: asset('css/admin_style_2.css')}}">
 </head>
 <body>
 
@@ -31,23 +31,24 @@
 
     <tr>
         <th>User Id</th>
-        <th>Blog ID</th>
         <th>Content</th>
         <th>Date</th>
-        <th>Delete</th>
     </tr>
-	@foreach($comment as $com)
 
     <tr>
-    <td>{{$com->user_id}}</td>
-      <td>{{$com->blog_id}}</td>
-    <td>{{gzinflate($com->content)}}</td>
-    <td>{{$com->created_at}}</td>
-    <td><a href = "/admincomment/delete/{{$com->id}}">Delete</a></td>
+    <td>{{$contact->user_id}}</td>
+      <td>{{$contact->message}}</td>
+    <td>{{$contact->created_at}}</td>
       </tr>
-    @endforeach
-    
     </table>
+
+    <br>
+    <form method="POST">
+        @csrf
+        <input type = "reply_message" placeholder="Enter Reply Message">
+        <input type = "submit" value="Submit">
+
+    </form>
 </div>
 <br>
 

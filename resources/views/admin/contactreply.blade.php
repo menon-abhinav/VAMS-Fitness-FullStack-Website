@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="css/admin_style_2.css">
+<link rel="stylesheet" type="text/css" href="{{URL :: asset('css/admin_style_2.css')}}">
 </head>
 <body>
 
@@ -27,26 +27,28 @@
 </div>
 
 <div id="content1">
+    <div><a href = "/admincontact">Contact Page</a></div>
     <table border=1>
 
     <tr>
         <th>User Id</th>
-        <th>Blog ID</th>
         <th>Content</th>
         <th>Date</th>
-        <th>Delete</th>
+        <th>Reply</th>
+        <th>Reply Date</th>
     </tr>
-	@foreach($comment as $com)
+
+	@foreach($contact as $com)
 
     <tr>
     <td>{{$com->user_id}}</td>
-      <td>{{$com->blog_id}}</td>
-    <td>{{gzinflate($com->content)}}</td>
+      <td>{{$com->message}}</td>
     <td>{{$com->created_at}}</td>
-    <td><a href = "/admincomment/delete/{{$com->id}}">Delete</a></td>
+    <td>{{$com->reply}}</td>
+    <td>{{$com->updated_at}}</td>
+
       </tr>
     @endforeach
-    
     </table>
 </div>
 <br>

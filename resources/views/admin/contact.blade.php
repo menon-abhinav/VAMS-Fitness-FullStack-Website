@@ -27,13 +27,15 @@
 </div>
 
 <div id="content1">
+
+    <div><a href = "/admincontact/allreply">Reply Page</a></div>
     <table border=1>
 
     <tr>
         <th>User Id</th>
         <th>Content</th>
         <th>Date</th>
-        <th>Delete</th>
+        <th>Reply</th>
     </tr>
 	@foreach($contact as $com)
 
@@ -41,7 +43,7 @@
     <td>{{$com->user_id}}</td>
       <td>{{$com->message}}</td>
     <td>{{$com->created_at}}</td>
-    <td><a href = "/admincontact/reply/{{$com->id}}">Delete</a></td>
+    <td><a href = "/admincontact/reply/{{$com->id}}">Reply</a></td>
       </tr>
     @endforeach
     </table>

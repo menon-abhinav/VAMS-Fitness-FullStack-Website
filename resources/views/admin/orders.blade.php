@@ -34,14 +34,17 @@
         <th>TXNID</th>
         <th>Amount</th>
     </tr>
+
+
 	@foreach($orders as $order)
 
     <tr>
-        <td>{{$order->user['first-name']}}</td>
+        <td>{{$order->order->user['id']}}</td>
         <td>{{$order['order_id']}}</td>
     </tr>
     @endforeach
-    </table>
+  </table>
+
 </div>
 <br>
 
