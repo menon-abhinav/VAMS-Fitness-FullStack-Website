@@ -132,7 +132,7 @@
                 <div class="col-lg-8">
                     <div class="contact-form">
                         <h4>Leave A Query</h4>
-                        @if (empty($message))
+                        @if (!empty($message))
                         <div>{{$message}}</div>
                         @endif
 
