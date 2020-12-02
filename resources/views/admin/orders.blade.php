@@ -6,15 +6,19 @@
 </head>
 <body>
 
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">Home</a>
-  <a href="#">Members</a>
-  <a href="#">Orders</a>
-  <a href="#">Charts</a>
-  <a href="#">Pages</a>
-  <a href="#">More...</a>
-</div>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/admin">Home</a>
+    <a href="/adminmember">Members</a>
+    <a href="/adminorder">Orders</a>
+    <a href = "/adminblog">Blog</a>
+    <a href = "/admincomment">Comment</a>
+    <a href = "/admintransaction">Transaction</a>
+    <a href = "/admincontact">Contact</a>
+  
+  </div>
+
 
 <div id="main">
   <h2><center>Admin Panel</center></h2>

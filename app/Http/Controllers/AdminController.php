@@ -109,4 +109,9 @@ class AdminController extends Controller
         $comment->delete();
         return redirect()->back();
     }
+
+    public function get_adminContact(){
+        $contact = Contact::all();
+        return view('admin.contact',compact('contact'));
+    }
 }

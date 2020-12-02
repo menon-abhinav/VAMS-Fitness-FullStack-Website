@@ -70,6 +70,7 @@ Route::get('adminblog','AdminController@get_adminBlog');
 Route::get('adminblog/delete/{id}','AdminController@admin_deleteblog');
 Route::get('admincomment','AdminController@get_adminComment');
 Route::get('admincomment/delete/{id}','AdminController@get_adminComment');
+Route::get('admincontact','AdminController@get_adminContact');
 
 
 Route::get('vamswallet','AccountController@vams_wallet');

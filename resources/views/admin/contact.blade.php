@@ -31,19 +31,17 @@
 
     <tr>
         <th>User Id</th>
-        <th>Blog ID</th>
         <th>Content</th>
         <th>Date</th>
         <th>Delete</th>
     </tr>
-	@foreach($comment as $com)
+	@foreach($contact as $com)
 
     <tr>
     <td>{{$com->user_id}}</td>
-      <td>{{$com->blog_id}}</td>
-    <td>{{gzinflate($com->content)}}</td>
+      <td>{{$com->message}}</td>
     <td>{{$com->created_at}}</td>
-    <td><a href = "/admincomment/delete/{{$com->id}}">Delete</a></td>
+    <td><a href = "/admincontact/reply/{{$com->id}}">Delete</a></td>
       </tr>
     @endforeach
     </table>
