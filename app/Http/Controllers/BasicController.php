@@ -7,13 +7,15 @@ use App\Mail\MailContactUs;
 use App\Http\Requests;
 use App\Contact;
 use Auth;
+use App\Blog;
 
 
 class BasicController extends Controller
 {
     // For Index Page
     public function index(){
-        return view('basic.index');
+        $blogs = Blog::latest()->limit(3)->get();
+        return view('basic.index',compact('blogs'));
     }
 
     // For About Page

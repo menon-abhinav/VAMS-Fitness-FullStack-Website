@@ -359,37 +359,17 @@
                     </div>
                 </div>
             </div>
+            @foreach($blogs as $blog)
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="single-blog-item">
-                        <img src="img/blog/blog-1.jpg" alt="">
                         <div class="blog-widget">
-                            <div class="bw-date">July 17, 2020</div>
-                            <a href="#" class="tag">#Gym</a>
+                        <div class="bw-date">{{$blog->created_at}}</div>
                         </div>
-                        <h4><a href="#">10 States At Risk of Rural Hospital Closures</a></h4>
+                    <h4><a href="/singleblog/{{$blog->id}}">{{$blog->subject}}</a></h4>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-item">
-                        <img src="img/blog/blog-2.jpg" alt="">
-                        <div class="blog-widget">
-                            <div class="bw-date">July 17, 2020</div>
-                            <a href="#" class="tag">#Sport</a>
-                        </div>
-                        <h4><a href="#">Diver who helped save Thai soccer team</a></h4>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-item">
-                        <img src="img/blog/blog-3.jpg" alt="">
-                        <div class="blog-widget">
-                            <div class="bw-date">July 17, 2020</div>
-                            <a href="#" class="tag">#Body</a>
-                        </div>
-                        <h4><a href="#">Man gets life in prison for stabbing</a></h4>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

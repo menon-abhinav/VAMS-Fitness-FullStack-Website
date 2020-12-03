@@ -91,7 +91,7 @@
                         <h3 class="featured__name">{{$shop->name}}</h3>
                         <span class="featured__preci">Rs. {{$shop->price}}</span>
                             <br>
-                        <a href="/addtocart/{{$shop->id}}}" class="button">Add to Cart</a>
+                        <a href="/addtocart/{{$shop->id}}" class="button">Add to Cart</a>
 
                         </div>
                     </div>

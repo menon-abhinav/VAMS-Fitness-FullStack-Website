@@ -34,6 +34,7 @@ Route::get('blog/delete/{token}','BlogController@delete');
 Route::get('blog/edit','BlogController@edit'); # Complete this one
 
 Route::get('shop','ShopController@get_shop');
+Route::get('addtocart/{id}','ShopController@addToCart');
 
 Route::get('class','ClassController@class')->middleware('auth');
 // Route::get('confirmpackage/{id}','ClassController@confirm_package');# Show according to seleted package
