@@ -66,7 +66,7 @@
     </header>
     <!-- Header End -->
     <!-- Hero Section Begin -->
-    <section class="hero-section set-bg" data-setbg="img/her.jpg">
+    <section class="hero-section set-bg" data-setbg="{{URL :: asset('img/her.jpg')}}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
@@ -88,7 +88,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="about-pic">
-                        <img src="img/about-pic.jpg" alt="">
+                        <img src="{{URL :: asset ('img/about-pic.jpg')}}" alt="">
                             <!-- <img src="img/play.png" alt=""> -->
                         </a>
                     </div>
