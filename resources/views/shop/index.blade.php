@@ -25,15 +25,14 @@
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
-                    <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
-                    <li class="nav__item"><a href="#featured" class="nav__link">Featured</a></li>
-                    <li class="nav__item"><a href="#new" class="nav__link">New</a></li>
-                    <li class="nav__item"><a href="#subscribed" class="nav__link">Subscribed</a></li>
+                    <li class="nav__item"><a href="/" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="/shop" class="nav__link active">Shop</a></li>
+                    <li class="nav__item"><a href="/logout" class="nav__link">Logout</a></li>
                 </ul>
             </div>
 
             <div>
-                <i class='bx bx-cart nav__cart'></i>
+                <a href = '/cart'><i class='bx bx-cart nav__cart'></i></a>
                 <i class='bx bx-menu nav__toggle' id="nav-toggle"></i>
             </div>
         </nav>
@@ -45,7 +44,6 @@
                 <div class="home__container bd-grid">
                     <div class="home__data">
                         <h1 class="home__title">NEW <br><span>ARRIVALS</span></h1>
-                        <a href="#featured" class="button">GO SHOPPING</a>
                     </div>
 
                     <img src="assests/imgs/home.png" alt="" class="home__img">
@@ -78,56 +76,26 @@
         <!-- /* Featured Products */ -->
             <section class="featured section" id="featured">
                 <h2 class="section-title">FEATURED PRODUCTS</h2>
-                <a href="#" class="section-all">View All</a>
 
                 <div class="featured__container bd-grid">
-                    <div class="featured__product">
-                        <div class="featured__box">
-                            <div class="featured__new">NEW</div>
-                            <img src="assests/imgs/feature1.png" alt="" class="featured__img">
-                        </div>
-                        
-                        <div class="featured__data">
-                            <h3 class="featured__name">Headphone One Black</h3>
-                            <span class="featured__preci">$29</span>
-                        </div>
-                    </div>
 
+                    @foreach($shops as $shop)
                     <div class="featured__product">
                         <div class="featured__box">
                             <div class="featured__new">NEW</div>
-                            <img src="assests/imgs/feature2.png" alt="" class="featured__img">
-                        </div>
-                        
-                        <div class="featured__data">
-                            <h3 class="featured__name">Speakers Beat Pills</h3>
-                            <span class="featured__preci">$199</span>
-                        </div>
-                    </div>
+                        <img src="{{$shop->image}}" alt="" class="featured__img">
+                        </div>             
 
-                    <div class="featured__product">
-                        <div class="featured__box">
-                            <div class="featured__new">NEW</div>
-                            <img src="assests/imgs/feature3.png" alt="" class="featured__img">
-                        </div>
-                        
-                        <div class="featured__data">
-                            <h3 class="featured__name">Apple Airpods</h3>
-                            <span class="featured__preci">$122</span>
-                        </div>
-                    </div>
 
-                    <div class="featured__product">
-                        <div class="featured__box">
-                            <div class="featured__new">NEW</div>
-                            <img src="assests/imgs/feature4.png" alt="" class="featured__img">
-                        </div>
-                        
                         <div class="featured__data">
-                            <h3 class="featured__name">Smartwatch F9 Negro</h3>
-                            <span class="featured__preci">$99</span>
+                        <h3 class="featured__name">{{$shop->name}}</h3>
+                        <span class="featured__preci">Rs. {{$shop->price}}</span>
+                            <br>
+                        <a href="/addtocart/{{$shop->id}}}" class="button">Add to Cart</a>
+
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </section>
 
@@ -139,7 +107,7 @@
                         <h2 class="offer__title">Special Offer</h2>
                         <p class="offer__description">Special offers discounts for women this week only</p>
 
-                        <a href="#" class="button">SHOP NOW</a>
+                        <a href="/shop" class="button">SHOP NOW</a>
                     </div>
                 </div>
             </section>
@@ -147,75 +115,39 @@
 
         <!-- /* New Arrivals */ -->
             <section class="new section" id="new">
-                <h2 class="section-title">NEW ARRIVALS</h2>
-                <a href="#" class="section-all">View All</a>
+                <h2 class="section-title">NEW PRODUCTS TO ARRIVE</h2>
 
                 <div class="new__container bd-grid">
                     <div class="new__box">
                         <img src="assests/imgs/new1.png" alt="" class="new__img">
-
-                        <div class="new__link">
-                            <a href="#" class="button">VIEW PRODUCT</a>
-                        </div>
                     </div>
 
                     <div class="new__box">
                         <img src="assests/imgs/new2.png" alt="" class="new__img">
 
-                        <div class="new__link">
-                            <a href="#" class="button">VIEW PRODUCT</a>
-                        </div>
                     </div>
 
                     <div class="new__box">
                         <img src="assests/imgs/new3.png" alt="" class="new__img">
 
-                        <div class="new__link">
-                            <a href="#" class="button">VIEW PRODUCT</a>
-                        </div>
                     </div>
 
                     <div class="new__box">
                         <img src="assests/imgs/new4.png" alt="" class="new__img">
 
-                        <div class="new__link">
-                            <a href="#" class="button">VIEW PRODUCT</a>
-                        </div>
                     </div>
 
                     <div class="new__box">
                         <img src="assests/imgs/new5.png" alt="" class="new__img">
-
-                        <div class="new__link">
-                            <a href="#" class="button">VIEW PRODUCT</a>
-                        </div>
                     </div>
 
                     <div class="new__box">
                         <img src="assests/imgs/new6.png" alt="" class="new__img">
 
-                        <div class="new__link">
-                            <a href="#" class="button">VIEW PRODUCT</a>
-                        </div>
                     </div>
                 </div>
             </section>
 
-
-        <!-- /* News Letter */ -->
-            <section class="newsletter section" id="subscribed">
-                <div class="newsletter__container bd-grid">
-                    <div class="newsletter__subscribe">
-                        <h2 class="section-title">OUR NEWSLETTER</h2>
-                        <p class="newsletter__description">Promotion news products and sales. Directly to your mail.</p>
-
-                        <form action="" class="newsletter__form">
-                            <input type="text"  class="newsletter__input" placeholder="Enter your e-mail ID">
-                            <a href="#" class="button">Subscribe</a>
-                        </form>
-                    </div>
-                </div>
-            </section>
         <!-- Sponsers -->
             <section class="sponsors section">
                 <div class="sponsors__container bd-grid">
@@ -253,29 +185,22 @@
             <div class="footer__box">
                 <h3 class="footer__title">EXPLORE</h3>
                 <ul>
-                    <li><a href="#" class="footer__link">Home</a></li>
-                    <li><a href="#" class="footer__link">Featured</a></li>
-                    <li><a href="#" class="footer__link">New</a></li>
-                    <li><a href="#" class="footer__link">Subscribe</a></li>
+                    <li><a href="/" class="footer__link">Home</a></li>
+                    <li><a href="/aboutus" class="footer__link">About Us</a></li>
+                    <li><a href="/class" class="footer__link">Class</a></li>
+                    <li><a href="/logout" class="footer__link">Logout</a></li>
                 </ul>
             </div>
 
             <div class="footer__box">
                 <h3 class="footer__title">OUR SERVICES</h3>
                 <ul>
-                    <li><a href="#" class="footer__link">Pricing</a></li>
-                    <li><a href="#" class="footer__link">Free Shipping</a></li>
-                    <li><a href="#" class="footer__link">Gift Card</a></li>
+                    <li><a href="/blog" class="footer__link">Blogs</a></li>
+                    <li><a href="/contact" class="footer__link">Query</a></li>
+                    <li><a href="/shop" class="footer__link">Shop</a></li>
                 </ul>
             </div>
 
-            <div class="footer__box">
-                <h3 class="footer__title">FOLLOW</h3>
-                <a href="#" class="footer__social"></a><i class='bx bxl-facebook-square'></i>
-                <a href="#" class="footer__social"></a><i class='bx bxl-instagram-alt' ></i>
-                <a href="#" class="footer__social"></a><i class='bx bxl-twitter' ></i>
-                <a href="#" class="footer__social"></a><i class='bx bxl-google-plus-circle'></i>
-            </div>
         </div>
 
         <p class="footer__copy">&#169; 2020 VAMS-Fitness copyright all rights reserved</p>

@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 class ShopController extends Controller
 {
     public function get_shop(){
-        return view('shop.index');
+        $shops = Shop::all();
+        return view('shop.index',compact('shops'));
+    }
+
+    public function addToCart($id){
+        $product = Shop::find($id);
+        
+        
     }
 }

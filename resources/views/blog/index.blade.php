@@ -113,8 +113,7 @@
     </section>
     <!-- Blog Section End -->
 
-
-    <!-- Footer Section Start -->
+    <!-- Footer Section Begin -->
     <footer class="footer-section">
         <div class="container">
             <div class="row">
@@ -133,19 +132,9 @@
                 <div class="col-md-4">
                     <div class="contact-option">
                         <span>Email</span>
-                        <p>vamsfitness@gmail.com</p>
+                        <p>teams.vams@gmail.com</p>
                     </div>
                 </div>
-            </div>
-            <div class="subscribe-option set-bg" data-setbg="img/signup.jpg">
-                <div class="so-text">
-                    <h4>Subscribe To Our Mailing List</h4>
-                    <p>Sign up to receive the latest information </p>
-                </div>
-                <form action="#" class="subscribe-form">
-                    <input type="text" placeholder="Enter Your Mail">
-                    <button type="submit"><i class="fa fa-send"></i></button>
-                </form>
             </div>
             <div class="copyright-text">
                 <ul>
@@ -154,16 +143,11 @@
                 </ul>
                 <p>&copy;<p>
   Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved </a></p></p>
-                <div class="footer-social">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                </div>
             </div>
         </div>
     </footer>
-    <!-- Footer Section Ends -->
+    <!-- Footer Section End -->
+
 
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>

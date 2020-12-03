@@ -28,7 +28,9 @@
 
 <div id="content1">
 
+    @if (Auth::check())
     <div><a href = "/admincontact/allreply">Reply Page</a></div>
+    @endif
     <table border=1>
 
     <tr>
