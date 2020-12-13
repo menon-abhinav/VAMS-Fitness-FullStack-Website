@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="cw-text">
                                     <h5>FeedBack Form</h5>
-                        <a href = "https://www.surveymonkey.com/r/V2ZBT8S"><p> Review Us</p></a>
+                        <a href = "https://www.surveymonkey.com/r/V2ZBT8S" target="_blank"><p> Review Us</p></a>
 
                                 </div>
                             </div>
