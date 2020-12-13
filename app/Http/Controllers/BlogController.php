@@ -46,7 +46,7 @@ class BlogController extends Controller
         // If requesting user is the owner of the blog
         if ($blog->user == $request->user()){
             $blog->delete();
-            return "Your blog has been successfully deleted";
+            return redirect("/blog");
         }
             return "You are not the owner of this blog";
         }

@@ -47,7 +47,7 @@ class ClassController extends Controller
         // GENERATA ORDER ID
 
         $new_order  = Order::create(['user_id'=>$request->user()->id]);
-        $orderid = intval($new_order->id) + 40100;
+        $orderid = intval($new_order->id) + 40300;
         $payment->prepare(['order' => $orderid,'user' => $request->user()->id,'mobile_number' => $request->user()->mobile,'email' => $request->user()->email, 'amount' => $package->price,'callback_url' => 'https://vams-fitness.herokuapp.com/packages']);
         return $payment->receive();
     }
@@ -57,7 +57,7 @@ class ClassController extends Controller
     {
         $transaction = PaytmWallet::with('receive');
         $response       =   $transaction->response(); // To get raw response as array
-        $newTransaction =   Transaction::create(['order_id'=>$response['ORDERID']-40100,'txnid'=>$response['TXNID'],'txnamount'=>$response['TXNAMOUNT'],'banktxnid'=>$response['BANKTXNID'],'txndate'=>$response['TXNDATE'],'status'=>$response['STATUS'],'bankname'=>$response['BANKNAME'],'gatewayname'=>$response['GATEWAYNAME']]);
+        $newTransaction =   Transaction::create(['order_id'=>$response['ORDERID']-40300,'txnid'=>$response['TXNID'],'txnamount'=>$response['TXNAMOUNT'],'banktxnid'=>$response['BANKTXNID'],'txndate'=>$response['TXNDATE'],'status'=>$response['STATUS'],'bankname'=>$response['BANKNAME'],'gatewayname'=>$response['GATEWAYNAME']]);
         if($transaction->isSuccessful()){
             $user               = User::find($request->user()->id);
             $package   = Package::find(session('id')); 
