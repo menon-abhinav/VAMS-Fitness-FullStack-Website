@@ -91,6 +91,14 @@
     <section class="blog-section spad">
         <div class="container">
         <div>
+
+
+            <div class="alert alert-warning">
+                <div>{{ Session::get('message') }}</div>
+            </div>
+        
+
+
         <p> Want to add a new blog, <a href = '/newblog'> click here </a> </p>
         <br>
          </div>

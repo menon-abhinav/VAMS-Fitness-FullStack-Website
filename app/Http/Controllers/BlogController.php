@@ -12,7 +12,8 @@ class BlogController extends Controller
     // For Main Blog Page
     public function blog(){
         $blog   =   Blog::latest()->get();
-        return view('blog.index',compact('blog'));
+        $message = '';
+        return view('blog.index',compact('blog','message'));
     }
 
     // For New Blog Page
@@ -46,9 +47,10 @@ class BlogController extends Controller
         // If requesting user is the owner of the blog
         if ($blog->user == $request->user()){
             $blog->delete();
-            return redirect("/blog");
+            return redirect("blog")->with('message','Your blog has been deleted');
         }
-            return "You are not the owner of this blog";
+        return redirect("blog")->with('message','Your are not the owner of the blog');
+
         }
 
 
